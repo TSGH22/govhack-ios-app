@@ -16,6 +16,8 @@
 		0443712528AFC6130060C4FC /* GovHackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0443712428AFC6130060C4FC /* GovHackTests.swift */; };
 		0443712F28AFC6130060C4FC /* GovHackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0443712E28AFC6130060C4FC /* GovHackUITests.swift */; };
 		0443713128AFC6130060C4FC /* GovHackUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0443713028AFC6130060C4FC /* GovHackUITestsLaunchTests.swift */; };
+		7000533A28B071D000DC7CDA /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000533928B071D000DC7CDA /* RootView.swift */; };
+		7000533D28B073B500DC7CDA /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000533C28B073B500DC7CDA /* ExploreView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		0443712A28AFC6130060C4FC /* GovHackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GovHackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0443712E28AFC6130060C4FC /* GovHackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GovHackUITests.swift; sourceTree = "<group>"; };
 		0443713028AFC6130060C4FC /* GovHackUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GovHackUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7000533928B071D000DC7CDA /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		7000533C28B073B500DC7CDA /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 		0443710C28AFC6120060C4FC /* GovHack */ = {
 			isa = PBXGroup;
 			children = (
+				7000533B28B0739E00DC7CDA /* Screens */,
 				0443710D28AFC6120060C4FC /* AppDelegate.swift */,
 				0443710F28AFC6120060C4FC /* SceneDelegate.swift */,
 				0443711128AFC6120060C4FC /* ViewController.swift */,
@@ -125,6 +130,15 @@
 				0443713028AFC6130060C4FC /* GovHackUITestsLaunchTests.swift */,
 			);
 			path = GovHackUITests;
+			sourceTree = "<group>";
+		};
+		7000533B28B0739E00DC7CDA /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				7000533928B071D000DC7CDA /* RootView.swift */,
+				7000533C28B073B500DC7CDA /* ExploreView.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +272,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7000533A28B071D000DC7CDA /* RootView.swift in Sources */,
 				0443711228AFC6120060C4FC /* ViewController.swift in Sources */,
+				7000533D28B073B500DC7CDA /* ExploreView.swift in Sources */,
 				0443710E28AFC6120060C4FC /* AppDelegate.swift in Sources */,
 				0443711028AFC6120060C4FC /* SceneDelegate.swift in Sources */,
 			);
@@ -437,7 +453,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AXFS8D8E46;
+				DEVELOPMENT_TEAM = 27H9RDP2HW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GovHack/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -445,12 +461,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.chuquimianproductions.GovHack;
+				PRODUCT_BUNDLE_IDENTIFIER = com.somethingrandom.GovHack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -465,7 +482,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AXFS8D8E46;
+				DEVELOPMENT_TEAM = 27H9RDP2HW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GovHack/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -473,12 +490,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.chuquimianproductions.GovHack;
+				PRODUCT_BUNDLE_IDENTIFIER = com.somethingrandom.GovHack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
