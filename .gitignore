@@ -1,0 +1,8 @@
+.idea
+
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
+GovHack.xcodeproj/project.xcworkspace/xcuserdata/
+
+*.DS_Store

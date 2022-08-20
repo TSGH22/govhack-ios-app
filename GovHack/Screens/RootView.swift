@@ -26,8 +26,32 @@ struct RootView: View {
         TabView(selection: $selection) {
             ExploreView().tag(Tab.explore)
                 .tabItem {
-                    Image(systemName: "house")
+                    Image(systemName: "map.circle")
                     Text("Explore")
+                }
+            
+            BookingsView().tag(Tab.bookings)
+                .tabItem {
+                    Image(systemName: "bookmark.circle")
+                    Text("Bookings")
+                }
+            
+            MessagesView().tag(Tab.messages)
+                .tabItem {
+                    Image(systemName: "message.circle")
+                    Text("Messages")
+                }
+            
+            ProfileView().tag(Tab.profile)
+                .tabItem {
+                    Image(systemName: "person.crop.circle")
+                    Text("Profile")
+                }
+            
+            MoreView().tag(Tab.more)
+                .tabItem {
+                    Image(systemName: "gear.circle")
+                    Text("More")
                 }
         }
     }
