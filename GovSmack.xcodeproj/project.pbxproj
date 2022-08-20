@@ -32,6 +32,8 @@
 		7000534328B0784400DC7CDA /* BookingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000534028B0784400DC7CDA /* BookingsView.swift */; };
 		7000534528B078FC00DC7CDA /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000534428B078FC00DC7CDA /* MessagesView.swift */; };
 		7000534828B07A3400DC7CDA /* FeaturedListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000534728B07A3400DC7CDA /* FeaturedListingView.swift */; };
+		7000534B28B09B5E00DC7CDA /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000534A28B09B5E00DC7CDA /* SearchResultsView.swift */; };
+		7000534D28B09B6700DC7CDA /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000534C28B09B6700DC7CDA /* FiltersView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,9 +62,9 @@
 		0443711628AFC6130060C4FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0443711928AFC6130060C4FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0443711B28AFC6130060C4FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0443712028AFC6130060C4FC /* GovHackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GovHackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0443712028AFC6130060C4FC /* GovHackGovSmacks.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GovHackGovSmacks.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0443712428AFC6130060C4FC /* GovHackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GovHackTests.swift; sourceTree = "<group>"; };
-		0443712A28AFC6130060C4FC /* GovHackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GovHackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0443712A28AFC6130060C4FC /* GovHackUIGovSmacks.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GovHackUIGovSmacks.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0443712E28AFC6130060C4FC /* GovHackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GovHackUITests.swift; sourceTree = "<group>"; };
 		0443713028AFC6130060C4FC /* GovHackUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GovHackUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0443714028B076890060C4FC /* NormalMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalMapView.swift; sourceTree = "<group>"; };
@@ -81,6 +83,8 @@
 		7000534028B0784400DC7CDA /* BookingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingsView.swift; sourceTree = "<group>"; };
 		7000534428B078FC00DC7CDA /* MessagesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		7000534728B07A3400DC7CDA /* FeaturedListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedListingView.swift; sourceTree = "<group>"; };
+		7000534A28B09B5E00DC7CDA /* SearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsView.swift; sourceTree = "<group>"; };
+		7000534C28B09B6700DC7CDA /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,8 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				0443710A28AFC6120060C4FC /* GovHack.app */,
-				0443712028AFC6130060C4FC /* GovHackTests.xctest */,
-				0443712A28AFC6130060C4FC /* GovHackUITests.xctest */,
+				0443712028AFC6130060C4FC /* GovHackGovSmacks.xctest */,
+				0443712A28AFC6130060C4FC /* GovHackUIGovSmacks.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -189,12 +193,12 @@
 		7000533B28B0739E00DC7CDA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				7000534928B09A3F00DC7CDA /* Home */,
 				7000534428B078FC00DC7CDA /* MessagesView.swift */,
 				7000534028B0784400DC7CDA /* BookingsView.swift */,
 				7000533F28B0784400DC7CDA /* MoreView.swift */,
 				7000533E28B0784400DC7CDA /* ProfileView.swift */,
 				7000533928B071D000DC7CDA /* RootView.swift */,
-				7000533C28B073B500DC7CDA /* ExploreView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -205,6 +209,16 @@
 				7000534728B07A3400DC7CDA /* FeaturedListingView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		7000534928B09A3F00DC7CDA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7000533C28B073B500DC7CDA /* ExploreView.swift */,
+				7000534A28B09B5E00DC7CDA /* SearchResultsView.swift */,
+				7000534C28B09B6700DC7CDA /* FiltersView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,9 +241,9 @@
 			productReference = 0443710A28AFC6120060C4FC /* GovHack.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0443711F28AFC6130060C4FC /* GovHackTests */ = {
+		0443711F28AFC6130060C4FC /* GovHackGovSmacks */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0443713728AFC6130060C4FC /* Build configuration list for PBXNativeTarget "GovHackTests" */;
+			buildConfigurationList = 0443713728AFC6130060C4FC /* Build configuration list for PBXNativeTarget "GovHackGovSmacks" */;
 			buildPhases = (
 				0443711C28AFC6130060C4FC /* Sources */,
 				0443711D28AFC6130060C4FC /* Frameworks */,
@@ -240,14 +254,14 @@
 			dependencies = (
 				0443712228AFC6130060C4FC /* PBXTargetDependency */,
 			);
-			name = GovHackTests;
+			name = GovHackGovSmacks;
 			productName = GovHackTests;
-			productReference = 0443712028AFC6130060C4FC /* GovHackTests.xctest */;
+			productReference = 0443712028AFC6130060C4FC /* GovHackGovSmacks.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		0443712928AFC6130060C4FC /* GovHackUITests */ = {
+		0443712928AFC6130060C4FC /* GovHackUIGovSmacks */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0443713A28AFC6130060C4FC /* Build configuration list for PBXNativeTarget "GovHackUITests" */;
+			buildConfigurationList = 0443713A28AFC6130060C4FC /* Build configuration list for PBXNativeTarget "GovHackUIGovSmacks" */;
 			buildPhases = (
 				0443712628AFC6130060C4FC /* Sources */,
 				0443712728AFC6130060C4FC /* Frameworks */,
@@ -258,9 +272,9 @@
 			dependencies = (
 				0443712C28AFC6130060C4FC /* PBXTargetDependency */,
 			);
-			name = GovHackUITests;
+			name = GovHackUIGovSmacks;
 			productName = GovHackUITests;
-			productReference = 0443712A28AFC6130060C4FC /* GovHackUITests.xctest */;
+			productReference = 0443712A28AFC6130060C4FC /* GovHackUIGovSmacks.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -286,7 +300,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0443710528AFC6120060C4FC /* Build configuration list for PBXProject "GovHack" */;
+			buildConfigurationList = 0443710528AFC6120060C4FC /* Build configuration list for PBXProject "GovSmack" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -300,8 +314,8 @@
 			projectRoot = "";
 			targets = (
 				0443710928AFC6120060C4FC /* GovHack */,
-				0443711F28AFC6130060C4FC /* GovHackTests */,
-				0443712928AFC6130060C4FC /* GovHackUITests */,
+				0443711F28AFC6130060C4FC /* GovHackGovSmacks */,
+				0443712928AFC6130060C4FC /* GovHackUIGovSmacks */,
 			);
 		};
 /* End PBXProject section */
@@ -346,7 +360,9 @@
 				0443714728B0940B0060C4FC /* MapPin.swift in Sources */,
 				0443714A28B095CA0060C4FC /* API.swift in Sources */,
 				0443714128B076890060C4FC /* NormalMapView.swift in Sources */,
+				7000534D28B09B6700DC7CDA /* FiltersView.swift in Sources */,
 				7000534528B078FC00DC7CDA /* MessagesView.swift in Sources */,
+				7000534B28B09B5E00DC7CDA /* SearchResultsView.swift in Sources */,
 				0443711228AFC6120060C4FC /* ViewController.swift in Sources */,
 				0443715228B099880060C4FC /* BookRequestModel.swift in Sources */,
 				7000533D28B073B500DC7CDA /* ExploreView.swift in Sources */,
@@ -663,7 +679,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0443710528AFC6120060C4FC /* Build configuration list for PBXProject "GovHack" */ = {
+		0443710528AFC6120060C4FC /* Build configuration list for PBXProject "GovSmack" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0443713228AFC6130060C4FC /* Debug */,
@@ -681,7 +697,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0443713728AFC6130060C4FC /* Build configuration list for PBXNativeTarget "GovHackTests" */ = {
+		0443713728AFC6130060C4FC /* Build configuration list for PBXNativeTarget "GovHackGovSmacks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0443713828AFC6130060C4FC /* Debug */,
@@ -690,7 +706,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0443713A28AFC6130060C4FC /* Build configuration list for PBXNativeTarget "GovHackUITests" */ = {
+		0443713A28AFC6130060C4FC /* Build configuration list for PBXNativeTarget "GovHackUIGovSmacks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0443713B28AFC6130060C4FC /* Debug */,

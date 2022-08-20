@@ -11,6 +11,8 @@ struct ExploreView: View {
     @State var featuredListings: [String]
     @State var mapPlaces: [MapLocation]
     @State var selectedPlace: MapLocation?
+    @State var filtersIsPresented: Bool = false
+    @State var searchModel: SearchRequestModel?
 
     init(featuredListings: [String] = [], mapPlaces: [MapLocation] = []) {
         self.featuredListings = featuredListings
@@ -23,7 +25,12 @@ struct ExploreView: View {
             Text("Tell us whay you need")
                 .padding(16)
                 .frame(maxWidth: .infinity)
-        }.background(Color.gray)
+            
+        }
+        .background(Color.gray)
+        .onTapGesture {
+            filtersIsPresented = true
+        }
     }
     
     var body: some View {
@@ -48,7 +55,11 @@ struct ExploreView: View {
                         }
                     }
                 }
-            }.padding(.leading, 16)
+            }
+            .padding(.leading, 16)
+            .sheet(isPresented: $filtersIsPresented) {
+                FiltersView(searchModel: $searchModel)
+            }
         }
     }
 }
