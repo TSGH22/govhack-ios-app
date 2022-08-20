@@ -19,6 +19,20 @@ class FiltersViewModel: ObservableObject {
     var cancellables: Set<AnyCancellable> = []
     var forceStopGeocoding = false
 
+    @Published var maxPrice: Float = 100
+    @Published var facLifts: Bool = false
+    @Published var facShowers: Bool = false
+    @Published var facMonitors: Bool = true
+    @Published var facProjector: Bool = false
+    @Published var facAccessibleAccess: Bool = false
+    @Published var facParking: Bool = false
+    @Published var facContactlessAccess: Bool = false
+    @Published var facWifi: Bool = true
+    @Published var spaceDesk: Bool = true
+    @Published var spaceBoardroom: Bool = true
+    @Published var spaceMeetingRoom: Bool = true
+
+
     private let geocoder = CLGeocoder()
 
     init() {

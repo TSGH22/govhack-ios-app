@@ -20,7 +20,6 @@ enum Facility: String, CaseIterable {
 
 struct FiltersView: View {
     @Binding var searchModel: SearchRequestModel?
-    @State var maxPrice: Float = 0
     @ObservedObject var viewModel = FiltersViewModel()
     @FocusState private var locationFieldIsFocused: Bool
 
@@ -35,16 +34,53 @@ struct FiltersView: View {
                 Text(viewModel.resolvedLocation)
                     .onTapGesture {
                         locationFieldIsFocused = false
-                        // Order is important below
                         viewModel.forceDisplay(search: viewModel.resolvedLocation)
                     }
                 
-                Text("Max price")
-                Slider(value: $maxPrice, in: .init(uncheckedBounds: (0, 1000))) {
-                    Text("Max price")
+                Text("Maximum Day Rate: $\(viewModel.maxPrice)")
+                HStack {
+                    Text("$10")
+                    Slider(value: $viewModel.maxPrice, in: .init(uncheckedBounds: (10, 1000))) { _ in }
+                        .tint(.white)
+                    Text("$1000")
                 }
+                Text("Space")
+                VStack {
+                    HStack {
+                        Toggle("Desks", isOn: $viewModel.spaceDesk)
+                            .toggleStyle(.button)
+                        Toggle("Meeting Rooms", isOn: $viewModel.spaceMeetingRoom)
+                            .toggleStyle(.button)
+                        Toggle("Boardrooms", isOn: $viewModel.spaceBoardroom)
+                            .toggleStyle(.button)
+                    }
+                }
+                .frame(maxWidth: .infinity)
                 
                 Text("Facilities")
+                VStack {
+                    HStack {
+                        Toggle("Wifi", isOn: $viewModel.facWifi)
+                            .toggleStyle(.button)
+                        Toggle("Monitors", isOn: $viewModel.facMonitors)
+                            .toggleStyle(.button)
+                        Toggle("Projector", isOn: $viewModel.facProjector)
+                            .toggleStyle(.button)
+                    }
+                    HStack {
+                        Toggle("Accessible Access", isOn: $viewModel.facAccessibleAccess)
+                            .toggleStyle(.button)
+                        Toggle("Parking Available", isOn: $viewModel.facParking)
+                            .toggleStyle(.button)
+                    }
+                    HStack {
+                        Toggle("Instant Entry", isOn: $viewModel.facContactlessAccess)
+                            .toggleStyle(.button)
+                        Toggle("Showers", isOn: $viewModel.facShowers)
+                            .toggleStyle(.button)
+                    }
+                }
+                .frame(maxWidth: .infinity)
             }
         }
         .padding(.horizontal, 16)
