@@ -21,6 +21,18 @@ extension Font {
     static let urbanistBodyMedium = Font.custom("Urbanist-Regular", size: 14)
     static let urbanistBodySmall = Font.custom("Urbanist-Regular", size: 12)
     static let urbanistBodyXSmall = Font.custom("Urbanist-Regular", size: 10)
+
+    static let urbanistBodySemiboldXLarge = Font.custom("Urbanist-SemiBold", size: 18)
+    static let urbanistBodySemiboldLarge = Font.custom("Urbanist-SemiBold", size: 16)
+    static let urbanistBodySemiboldMedium = Font.custom("Urbanist-SemiBold", size: 14)
+    static let urbanistBodySemiboldSmall = Font.custom("Urbanist-SemiBold", size: 12)
+    static let urbanistBodySemiboldXSmall = Font.custom("Urbanist-SemiBold", size: 10)
+
+    static let urbanistBodyBoldXLarge = Font.custom("Urbanist-Bold", size: 18)
+    static let urbanistBodyBoldLarge = Font.custom("Urbanist-Bold", size: 16)
+    static let urbanistBodyBoldMedium = Font.custom("Urbanist-Bold", size: 14)
+    static let urbanistBodyBoldSmall = Font.custom("Urbanist-Bold", size: 12)
+    static let urbanistBodyBoldXSmall = Font.custom("Urbanist-Bold", size: 10)
 }
 
 extension Color {

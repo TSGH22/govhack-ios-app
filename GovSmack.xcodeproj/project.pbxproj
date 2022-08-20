@@ -47,6 +47,7 @@
 		04B564BD28B0C974000AF7D5 /* Urbanist-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04B564AB28B0C974000AF7D5 /* Urbanist-BlackItalic.ttf */; };
 		04B564BE28B0C974000AF7D5 /* Urbanist-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04B564AC28B0C974000AF7D5 /* Urbanist-Medium.ttf */; };
 		04B564C028B0CA6B000AF7D5 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B564BF28B0CA6B000AF7D5 /* Font.swift */; };
+		04B564C228B0D149000AF7D5 /* UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B564C128B0D149000AF7D5 /* UIKit.swift */; };
 		7000533A28B071D000DC7CDA /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000533928B071D000DC7CDA /* RootView.swift */; };
 		7000533D28B073B500DC7CDA /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000533C28B073B500DC7CDA /* ExploreView.swift */; };
 		7000534128B0784400DC7CDA /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000533E28B0784400DC7CDA /* ProfileView.swift */; };
@@ -126,6 +127,7 @@
 		04B564AB28B0C974000AF7D5 /* Urbanist-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-BlackItalic.ttf"; sourceTree = "<group>"; };
 		04B564AC28B0C974000AF7D5 /* Urbanist-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-Medium.ttf"; sourceTree = "<group>"; };
 		04B564BF28B0CA6B000AF7D5 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		04B564C128B0D149000AF7D5 /* UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.swift; sourceTree = "<group>"; };
 		7000533928B071D000DC7CDA /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		7000533C28B073B500DC7CDA /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		7000533E28B0784400DC7CDA /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				7000534728B07A3400DC7CDA /* FeaturedListingView.swift */,
 				7000535228B0AA6A00DC7CDA /* ListingView.swift */,
 				7000535728B0CD2400DC7CDA /* FeaturedListingsCarouselView.swift */,
+				04B564C128B0D149000AF7D5 /* UIKit.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				0443714528B078400060C4FC /* MapCoordinator.swift in Sources */,
 				7000534228B0784400DC7CDA /* MoreView.swift in Sources */,
 				7000533A28B071D000DC7CDA /* RootView.swift in Sources */,
+				04B564C228B0D149000AF7D5 /* UIKit.swift in Sources */,
 				7000534F28B0A60C00DC7CDA /* ResultsView.swift in Sources */,
 				0443714728B0940B0060C4FC /* MapPin.swift in Sources */,
 				04B564C028B0CA6B000AF7D5 /* Font.swift in Sources */,
