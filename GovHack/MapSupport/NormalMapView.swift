@@ -12,6 +12,7 @@ struct NormalMapView: UIViewRepresentable {
 
     let places: [MapLocation]
     @Binding var selectedPlace: MapLocation?
+    @Binding var displayedRegion: MKCoordinateRegion
 
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -21,7 +22,7 @@ struct NormalMapView: UIViewRepresentable {
         let mapView = MKMapView()
         mapView.delegate = context.coordinator
 
-        mapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: -33.8865505412147, longitude: 151.21161037477057), latitudinalMeters: 1400, longitudinalMeters: 1400), animated: false)
+        mapView.setRegion(displayedRegion, animated: false)
 
         mapView.mapType = .standard // Muted looks so bad, doesn't remove POIs
         mapView.pointOfInterestFilter = .init(including: [.cafe, .carRental, .parking, .hotel, .evCharger, .publicTransport])
@@ -32,6 +33,10 @@ struct NormalMapView: UIViewRepresentable {
 
     func updateUIView(_ uiView: MKMapView, context: Context) {
         context.coordinator.update(map: uiView, places: places)
+//
+//        if uiView.region != displayedRegion {
+//            uiView.setRegion(displayedRegion, animated: false)
+//        }
     }
 }
 
@@ -44,7 +49,8 @@ struct NormalMapView_Previews: PreviewProvider {
                     coordinate: CLLocationCoordinate2D(latitude: -33.8865505412147, longitude: 151.21161037477057)
                 )
             ],
-            selectedPlace: .constant(nil)
+            selectedPlace: .constant(nil),
+            displayedRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: -33.8865505412147, longitude: 151.21161037477057), latitudinalMeters: 1400, longitudinalMeters: 1400))
         )
     }
 }

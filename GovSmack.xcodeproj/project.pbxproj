@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042C4AEC28B0A65A00DF8337 /* FiltersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C4AEB28B0A65A00DF8337 /* FiltersViewModel.swift */; };
+		042C4AEF28B0AD4B00DF8337 /* MapKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C4AEE28B0AD4B00DF8337 /* MapKitExtensions.swift */; };
 		0443710E28AFC6120060C4FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0443710D28AFC6120060C4FC /* AppDelegate.swift */; };
 		0443711028AFC6120060C4FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0443710F28AFC6120060C4FC /* SceneDelegate.swift */; };
 		0443711228AFC6120060C4FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0443711128AFC6120060C4FC /* ViewController.swift */; };
@@ -59,6 +61,8 @@
 
 /* Begin PBXFileReference section */
 		0443710A28AFC6120060C4FC /* GovSmack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GovSmack.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		042C4AEB28B0A65A00DF8337 /* FiltersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewModel.swift; sourceTree = "<group>"; };
+		042C4AEE28B0AD4B00DF8337 /* MapKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitExtensions.swift; sourceTree = "<group>"; };
 		0443710D28AFC6120060C4FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0443710F28AFC6120060C4FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0443711128AFC6120060C4FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +124,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		042C4AED28B0AD4200DF8337 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				042C4AEE28B0AD4B00DF8337 /* MapKitExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		0443710128AFC6120060C4FC = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +155,7 @@
 		0443710C28AFC6120060C4FC /* GovHack */ = {
 			isa = PBXGroup;
 			children = (
+				042C4AED28B0AD4200DF8337 /* Extensions */,
 				7000534628B0798000DC7CDA /* Components */,
 				7000533B28B0739E00DC7CDA /* Screens */,
 				0443710D28AFC6120060C4FC /* AppDelegate.swift */,
@@ -229,6 +242,7 @@
 				7000534A28B09B5E00DC7CDA /* SearchResultsView.swift */,
 				7000534C28B09B6700DC7CDA /* FiltersView.swift */,
 				7000534E28B0A60C00DC7CDA /* ResultsView.swift */,
+				042C4AEB28B0A65A00DF8337 /* FiltersViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -380,6 +394,7 @@
 				0443711228AFC6120060C4FC /* ViewController.swift in Sources */,
 				0443715228B099880060C4FC /* BookRequestModel.swift in Sources */,
 				7000533D28B073B500DC7CDA /* ExploreView.swift in Sources */,
+				042C4AEC28B0A65A00DF8337 /* FiltersViewModel.swift in Sources */,
 				7000534328B0784400DC7CDA /* BookingsView.swift in Sources */,
 				7000535628B0AD6800DC7CDA /* PropertyExtensions.swift in Sources */,
 				7000535428B0AB9B00DC7CDA /* ListingView.swift in Sources */,
@@ -387,6 +402,7 @@
 				0443714C28B097590060C4FC /* Requests.swift in Sources */,
 				0443710E28AFC6120060C4FC /* AppDelegate.swift in Sources */,
 				7000534128B0784400DC7CDA /* ProfileView.swift in Sources */,
+				042C4AEF28B0AD4B00DF8337 /* MapKitExtensions.swift in Sources */,
 				0443711028AFC6120060C4FC /* SceneDelegate.swift in Sources */,
 				7000534828B07A3400DC7CDA /* FeaturedListingView.swift in Sources */,
 			);

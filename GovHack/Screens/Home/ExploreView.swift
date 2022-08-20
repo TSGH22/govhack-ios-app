@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ExploreView: View {
     @State var featuredListings: [String]
@@ -42,7 +43,8 @@ struct ExploreView: View {
                 Text("Map View")
                 NormalMapView(
                     places: mapPlaces,
-                    selectedPlace: $selectedPlace
+                    selectedPlace: $selectedPlace,
+                    displayedRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: -33.8865505412147, longitude: 151.21161037477057), latitudinalMeters: 1400, longitudinalMeters: 1400))
                 )
                 .frame(height: 150)
                 .padding(.trailing, 16)

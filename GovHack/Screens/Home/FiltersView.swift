@@ -20,26 +20,24 @@ enum Facility: String, CaseIterable {
 
 struct FiltersView: View {
     @Binding var searchModel: SearchRequestModel?
-    
-    @State var lat: String = ""
-    @State var long: String = ""
     @State var maxPrice: Float = 0
-    
+    @ObservedObject var viewModel = FiltersViewModel()
+    @FocusState private var locationFieldIsFocused: Bool
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
                 Text("Tell us what you need")
-                TextField("Latitude", text: $lat)
+                TextField("Suburb", text: $viewModel.searchText)
                     .textFieldStyle(.roundedBorder)
-                    .keyboardType(.decimalPad)
-                
-                TextField("Longitude", text: $long)
-                    .textFieldStyle(.roundedBorder)
-                    .keyboardType(.decimalPad)
-                
-                TextField("Radius", text: $long)
-                    .textFieldStyle(.roundedBorder)
-                    .keyboardType(.decimalPad)
+                    .keyboardType(.alphabet)
+                    .focused($locationFieldIsFocused)
+                Text(viewModel.resolvedLocation)
+                    .onTapGesture {
+                        locationFieldIsFocused = false
+                        // Order is important below
+                        viewModel.forceDisplay(search: viewModel.resolvedLocation)
+                    }
                 
                 Text("Max price")
                 Slider(value: $maxPrice, in: .init(uncheckedBounds: (0, 1000))) {
@@ -47,7 +45,6 @@ struct FiltersView: View {
                 }
                 
                 Text("Facilities")
-                
             }
         }
         .padding(.horizontal, 16)
