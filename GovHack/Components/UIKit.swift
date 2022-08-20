@@ -7,6 +7,43 @@
 
 import SwiftUI
 
+struct NiceTextField: View {
+    let icon: UIImage?
+    let placeholder: String
+    @Binding var text: String
+    @FocusState var isFocused: Bool
+
+    var body: some View {
+        TextField(placeholder, text: $text)
+            .focused($isFocused)
+            .font(.urbanistBodyMedium)
+            .tint(.urbanSecondary)
+            .foregroundColor(.urbanPrimary)
+            .padding(.vertical, 8)
+            .padding(.trailing, 8)
+            .padding(.leading,  icon == nil ? 8 : 35)
+            .frame(height: 56)
+            .background(content: { Color.urbanGrey50 })
+            .cornerRadius(16)
+            .overlay {
+                if let icon = icon {
+                    HStack {
+                        Spacer()
+                            .frame(width: 8)
+                        Image(uiImage: icon)
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                        Spacer()
+                    }
+                }
+            }
+            .onTapGesture {
+                isFocused = true
+            }
+    }
+
+}
+
 struct FilledButton: View {
 
     let text: String
@@ -98,6 +135,11 @@ struct Lozenge: View {
 struct UIKit_Previews: PreviewProvider {
     static var previews: some View {
         VStack(alignment: .leading) {
+            HStack {
+                NiceTextField(icon: nil, placeholder: "Enter text here", text: .constant(""))
+                NiceTextField(icon: nil, placeholder: "Enter text here", text: .constant("Hello!"))
+                NiceTextField(icon: UIImage(named: "Calendar"), placeholder: "Date", text: .constant(""))
+            }
             FilledButton(text: "Do the thing!", action: {})
             HStack {
                 ToggleButton(text: "Toggled On", isSelected: .constant(true))

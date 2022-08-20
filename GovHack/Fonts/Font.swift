@@ -45,6 +45,8 @@ extension Color {
     static let urbanSecondary300 = Color(hex: 0xC0E6E9)
     static let urbanError = Color(hex: 0xF75555)
     static let urbanSuccess = Color(hex: 0x0BDD74)
+    static let urbanGrey50 = Color(hex: 0xFAFAFA)
+    static let urbanGrey500 = Color(hex: 0x9E9E9E)
 
     init(hex: UInt, alpha: Double = 1) {
         self.init(
