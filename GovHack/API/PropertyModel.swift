@@ -65,7 +65,7 @@ extension PropertyModel {
         let dailyPrice: Float
         let availabilty: Availability
 
-        enum Name: String, Codable {
+        enum Name: String, Codable, CaseIterable {
             case boardroom, desk, meeting_room
         }
     }

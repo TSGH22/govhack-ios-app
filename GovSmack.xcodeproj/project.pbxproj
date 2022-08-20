@@ -61,6 +61,7 @@
 		7000535428B0AB9B00DC7CDA /* ListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000535228B0AA6A00DC7CDA /* ListingView.swift */; };
 		7000535628B0AD6800DC7CDA /* PropertyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000535528B0AD6800DC7CDA /* PropertyExtensions.swift */; };
 		7000535828B0CD2400DC7CDA /* FeaturedListingsCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000535728B0CD2400DC7CDA /* FeaturedListingsCarouselView.swift */; };
+		7000535A28B0CE3000DC7CDA /* ListingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000535928B0CE3000DC7CDA /* ListingDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 		7000535228B0AA6A00DC7CDA /* ListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingView.swift; sourceTree = "<group>"; };
 		7000535528B0AD6800DC7CDA /* PropertyExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyExtensions.swift; sourceTree = "<group>"; };
 		7000535728B0CD2400DC7CDA /* FeaturedListingsCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedListingsCarouselView.swift; sourceTree = "<group>"; };
+		7000535928B0CE3000DC7CDA /* ListingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +324,7 @@
 				7000534C28B09B6700DC7CDA /* FiltersView.swift */,
 				7000534E28B0A60C00DC7CDA /* ResultsView.swift */,
 				042C4AEB28B0A65A00DF8337 /* FiltersViewModel.swift */,
+				7000535928B0CE3000DC7CDA /* ListingDetailView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				0443714A28B095CA0060C4FC /* API.swift in Sources */,
 				0443714128B076890060C4FC /* NormalMapView.swift in Sources */,
 				7000534D28B09B6700DC7CDA /* FiltersView.swift in Sources */,
+				7000535A28B0CE3000DC7CDA /* ListingDetailView.swift in Sources */,
 				7000534528B078FC00DC7CDA /* MessagesView.swift in Sources */,
 				7000534B28B09B5E00DC7CDA /* SearchResultsView.swift in Sources */,
 				0443711228AFC6120060C4FC /* ViewController.swift in Sources */,
