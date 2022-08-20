@@ -30,8 +30,11 @@ extension PropertyModel {
             greenRating: 4,
             dressCode: .casual,
             houseRules: "dont be a dumdum",
-            spaceRating: .init(cleanliness: 4, noiseLevel: 3, facilities: 5),
-            spaces: [.init(id: UUID().uuidString, name: .boardroom, capacity: 5, dailyPrice: 50, availabilty: .init(startDate: "10/10/2022", endDate: "11/11/2022"))]
+            spaceRating: .init(cleanliness: 3, noiseLevel: 9, facilities: 5),
+            spaces: [
+                .init(id: UUID().uuidString, name: .boardroom, capacity: 5, dailyPrice: 50, availabilty: .init(startDate: "10/10/2022", endDate: "11/11/2022")),
+                .init(id: UUID().uuidString, name: .desk, capacity: 3, dailyPrice: 10, availabilty: .init(startDate: "10/10/2022", endDate: "11/11/2022"))
+            ]
         )
     }
 }

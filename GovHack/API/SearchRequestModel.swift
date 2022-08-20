@@ -15,7 +15,7 @@ struct SearchRequestModel: Codable {
 
     let maxPrice: Double?
     let includedFacilities: [String]?
-    let spaceNames: [String]?
+    let spaceNames: [PropertyModel.Space.Name]?
     let capacity: Int?
 }
 
