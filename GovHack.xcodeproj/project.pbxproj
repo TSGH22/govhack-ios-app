@@ -16,6 +16,10 @@
 		0443712528AFC6130060C4FC /* GovHackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0443712428AFC6130060C4FC /* GovHackTests.swift */; };
 		0443712F28AFC6130060C4FC /* GovHackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0443712E28AFC6130060C4FC /* GovHackUITests.swift */; };
 		0443713128AFC6130060C4FC /* GovHackUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0443713028AFC6130060C4FC /* GovHackUITestsLaunchTests.swift */; };
+		0443714128B076890060C4FC /* NormalMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0443714028B076890060C4FC /* NormalMapView.swift */; };
+		0443714328B0781F0060C4FC /* MapLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0443714228B0781F0060C4FC /* MapLocation.swift */; };
+		0443714528B078400060C4FC /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0443714428B078400060C4FC /* MapCoordinator.swift */; };
+		0443714728B0940B0060C4FC /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0443714628B0940B0060C4FC /* MapPin.swift */; };
 		7000533A28B071D000DC7CDA /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000533928B071D000DC7CDA /* RootView.swift */; };
 		7000533D28B073B500DC7CDA /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000533C28B073B500DC7CDA /* ExploreView.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +55,10 @@
 		0443712A28AFC6130060C4FC /* GovHackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GovHackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0443712E28AFC6130060C4FC /* GovHackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GovHackUITests.swift; sourceTree = "<group>"; };
 		0443713028AFC6130060C4FC /* GovHackUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GovHackUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0443714028B076890060C4FC /* NormalMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalMapView.swift; sourceTree = "<group>"; };
+		0443714228B0781F0060C4FC /* MapLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocation.swift; sourceTree = "<group>"; };
+		0443714428B078400060C4FC /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
+		0443714628B0940B0060C4FC /* MapPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
 		7000533928B071D000DC7CDA /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		7000533C28B073B500DC7CDA /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +115,7 @@
 				0443710D28AFC6120060C4FC /* AppDelegate.swift */,
 				0443710F28AFC6120060C4FC /* SceneDelegate.swift */,
 				0443711128AFC6120060C4FC /* ViewController.swift */,
+				0443713D28B076510060C4FC /* MapSupport */,
 				0443711328AFC6120060C4FC /* Main.storyboard */,
 				0443711628AFC6130060C4FC /* Assets.xcassets */,
 				0443711828AFC6130060C4FC /* LaunchScreen.storyboard */,
@@ -130,6 +139,17 @@
 				0443713028AFC6130060C4FC /* GovHackUITestsLaunchTests.swift */,
 			);
 			path = GovHackUITests;
+			sourceTree = "<group>";
+		};
+		0443713D28B076510060C4FC /* MapSupport */ = {
+			isa = PBXGroup;
+			children = (
+				0443714028B076890060C4FC /* NormalMapView.swift */,
+				0443714228B0781F0060C4FC /* MapLocation.swift */,
+				0443714428B078400060C4FC /* MapCoordinator.swift */,
+				0443714628B0940B0060C4FC /* MapPin.swift */,
+			);
+			path = MapSupport;
 			sourceTree = "<group>";
 		};
 		7000533B28B0739E00DC7CDA /* Screens */ = {
@@ -272,7 +292,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0443714328B0781F0060C4FC /* MapLocation.swift in Sources */,
+				0443714528B078400060C4FC /* MapCoordinator.swift in Sources */,
 				7000533A28B071D000DC7CDA /* RootView.swift in Sources */,
+				0443714728B0940B0060C4FC /* MapPin.swift in Sources */,
+				0443714128B076890060C4FC /* NormalMapView.swift in Sources */,
 				0443711228AFC6120060C4FC /* ViewController.swift in Sources */,
 				7000533D28B073B500DC7CDA /* ExploreView.swift in Sources */,
 				0443710E28AFC6120060C4FC /* AppDelegate.swift in Sources */,
@@ -461,7 +485,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -490,7 +514,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
