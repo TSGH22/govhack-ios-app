@@ -9,9 +9,13 @@ import SwiftUI
 
 struct ExploreView: View {
     @State var featuredListings: [String]
-    
-    init(featuredListings: [String] = []) {
+    @State var mapPlaces: [MapLocation]
+    @State var selectedPlace: MapLocation?
+
+    init(featuredListings: [String] = [], mapPlaces: [MapLocation] = []) {
         self.featuredListings = featuredListings
+        self.mapPlaces = mapPlaces
+        self.selectedPlace = nil
     }
     
     private var searchView: some View {
@@ -29,7 +33,12 @@ struct ExploreView: View {
                 searchView.padding(.trailing, 16)
                 Divider()
                 Text("Map View")
-                Color.gray.frame(height: 150).padding(.trailing, 16)
+                NormalMapView(
+                    places: mapPlaces,
+                    selectedPlace: $selectedPlace
+                )
+                .frame(height: 150)
+                .padding(.trailing, 16)
                 Divider()
                 Text("Featured")
                 ScrollView(.horizontal) {
