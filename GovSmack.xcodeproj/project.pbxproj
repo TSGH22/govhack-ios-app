@@ -60,6 +60,7 @@
 		7000535128B0A6ED00DC7CDA /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000535028B0A6ED00DC7CDA /* Mocks.swift */; };
 		7000535428B0AB9B00DC7CDA /* ListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000535228B0AA6A00DC7CDA /* ListingView.swift */; };
 		7000535628B0AD6800DC7CDA /* PropertyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000535528B0AD6800DC7CDA /* PropertyExtensions.swift */; };
+		7000535828B0CD2400DC7CDA /* FeaturedListingsCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000535728B0CD2400DC7CDA /* FeaturedListingsCarouselView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +84,7 @@
 		042C4AEB28B0A65A00DF8337 /* FiltersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewModel.swift; sourceTree = "<group>"; };
 		042C4AEE28B0AD4B00DF8337 /* MapKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitExtensions.swift; sourceTree = "<group>"; };
 		042C4AF128B0C1B600DF8337 /* EnquireView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnquireView.swift; sourceTree = "<group>"; };
-		0443710A28AFC6120060C4FC /* GovSmack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GovSmack.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0443710A28AFC6120060C4FC /* Spacey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spacey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0443710D28AFC6120060C4FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0443710F28AFC6120060C4FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0443711128AFC6120060C4FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 		7000535028B0A6ED00DC7CDA /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		7000535228B0AA6A00DC7CDA /* ListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingView.swift; sourceTree = "<group>"; };
 		7000535528B0AD6800DC7CDA /* PropertyExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyExtensions.swift; sourceTree = "<group>"; };
+		7000535728B0CD2400DC7CDA /* FeaturedListingsCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedListingsCarouselView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,7 +195,7 @@
 		0443710B28AFC6120060C4FC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0443710A28AFC6120060C4FC /* GovSmack.app */,
+				0443710A28AFC6120060C4FC /* Spacey.app */,
 				0443712028AFC6130060C4FC /* GovHackGovSmacks.xctest */,
 				0443712A28AFC6130060C4FC /* GovHackUIGovSmacks.xctest */,
 			);
@@ -307,6 +309,7 @@
 			children = (
 				7000534728B07A3400DC7CDA /* FeaturedListingView.swift */,
 				7000535228B0AA6A00DC7CDA /* ListingView.swift */,
+				7000535728B0CD2400DC7CDA /* FeaturedListingsCarouselView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -326,9 +329,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0443710928AFC6120060C4FC /* GovSmack */ = {
+		0443710928AFC6120060C4FC /* Spacey */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0443713428AFC6130060C4FC /* Build configuration list for PBXNativeTarget "GovSmack" */;
+			buildConfigurationList = 0443713428AFC6130060C4FC /* Build configuration list for PBXNativeTarget "Spacey" */;
 			buildPhases = (
 				0443710628AFC6120060C4FC /* Sources */,
 				0443710728AFC6120060C4FC /* Frameworks */,
@@ -338,9 +341,9 @@
 			);
 			dependencies = (
 			);
-			name = GovSmack;
+			name = Spacey;
 			productName = GovHack;
-			productReference = 0443710A28AFC6120060C4FC /* GovSmack.app */;
+			productReference = 0443710A28AFC6120060C4FC /* Spacey.app */;
 			productType = "com.apple.product-type.application";
 		};
 		0443711F28AFC6130060C4FC /* GovHackGovSmacks */ = {
@@ -415,7 +418,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0443710928AFC6120060C4FC /* GovSmack */,
+				0443710928AFC6120060C4FC /* Spacey */,
 				0443711F28AFC6130060C4FC /* GovHackGovSmacks */,
 				0443712928AFC6130060C4FC /* GovHackUIGovSmacks */,
 			);
@@ -497,6 +500,7 @@
 				0443715028B098910060C4FC /* SearchRequestModel.swift in Sources */,
 				0443714C28B097590060C4FC /* Requests.swift in Sources */,
 				0443710E28AFC6120060C4FC /* AppDelegate.swift in Sources */,
+				7000535828B0CD2400DC7CDA /* FeaturedListingsCarouselView.swift in Sources */,
 				7000534128B0784400DC7CDA /* ProfileView.swift in Sources */,
 				042C4AEF28B0AD4B00DF8337 /* MapKitExtensions.swift in Sources */,
 				0443711028AFC6120060C4FC /* SceneDelegate.swift in Sources */,
@@ -526,12 +530,12 @@
 /* Begin PBXTargetDependency section */
 		0443712228AFC6130060C4FC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0443710928AFC6120060C4FC /* GovSmack */;
+			target = 0443710928AFC6120060C4FC /* Spacey */;
 			targetProxy = 0443712128AFC6130060C4FC /* PBXContainerItemProxy */;
 		};
 		0443712C28AFC6130060C4FC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0443710928AFC6120060C4FC /* GovSmack */;
+			target = 0443710928AFC6120060C4FC /* Spacey */;
 			targetProxy = 0443712B28AFC6130060C4FC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -816,7 +820,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0443713428AFC6130060C4FC /* Build configuration list for PBXNativeTarget "GovSmack" */ = {
+		0443713428AFC6130060C4FC /* Build configuration list for PBXNativeTarget "Spacey" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0443713528AFC6130060C4FC /* Debug */,

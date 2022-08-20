@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SearchRequestModel: Codable {
+struct SearchRequestModel: Codable, Equatable {
 
     let lat: Double
     let long: Double

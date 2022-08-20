@@ -9,13 +9,14 @@ import SwiftUI
 import MapKit
 
 struct ExploreView: View {
-    @State var featuredListings: [String]
+    @State var featuredListings: [PropertyModel]
     @State var mapPlaces: [MapLocation]
     @State var selectedPlace: MapLocation?
     @State var filtersIsPresented: Bool = false
     @State var searchModel: SearchRequestModel?
+    @State var showResults: Bool = false
 
-    init(featuredListings: [String] = [], mapPlaces: [MapLocation] = []) {
+    init(featuredListings: [PropertyModel] = .mockFeatured, mapPlaces: [MapLocation] = []) {
         self.featuredListings = featuredListings
         self.mapPlaces = mapPlaces
         self.selectedPlace = nil
@@ -23,7 +24,7 @@ struct ExploreView: View {
     
     private var searchView: some View {
         VStack {
-            Text("Tell us whay you need")
+            Text("Tell us what you need")
                 .padding(16)
                 .frame(maxWidth: .infinity)
             
@@ -37,37 +38,52 @@ struct ExploreView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                Text("Search")
-                searchView.padding(.trailing, 16)
-                Divider()
-                Text("Map View")
-                NormalMapView(
-                    places: mapPlaces,
-                    selectedPlace: $selectedPlace,
-                    displayedRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: -33.8865505412147, longitude: 151.21161037477057), latitudinalMeters: 1400, longitudinalMeters: 1400))
-                )
-                .frame(height: 150)
-                .padding(.trailing, 16)
-                Divider()
-                Text("Featured")
-                ScrollView(.horizontal) {
-                    HStack {
-                        ForEach(featuredListings, id: \.self) {
-                            FeaturedListingView(image: "office", address: $0)
-                        }
-                    }
+                Group {
+                    Text("Search")
+                    searchView.padding(.trailing, 16)
+                    Divider()
+                    Text("Map View")
+                    NormalMapView(
+                        places: mapPlaces,
+                        selectedPlace: $selectedPlace,
+                        displayedRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: -33.8865505412147, longitude: 151.21161037477057), latitudinalMeters: 1400, longitudinalMeters: 1400))
+                    )
+                    .frame(height: 150)
+                    .padding(.trailing, 16)
+                    Divider()
+                    Text("Featured")
                 }
+                .padding(.leading, 16)
+                FeaturedListingsCarouselView(featuredListings: featuredListings)
             }
-            .padding(.leading, 16)
             .sheet(isPresented: $filtersIsPresented) {
                 FiltersView(searchModel: $searchModel)
             }
+            NavigationLink(isActive: $showResults) {
+                if let filter = searchModel {
+                    ResultsView(featuredListings: .mock, results: .mock, filter: filter)
+                }
+            } label: {
+                EmptyView()
+            }
         }
+        .onChange(of: searchModel) { searchModel in
+            guard searchModel != nil else { return }
+            filtersIsPresented = false
+            DispatchQueue.main.async {
+                showResults = true
+            }
+        }
+        .onChange(of: showResults) { showResults in
+            guard !showResults else { return }
+            searchModel = nil
+        }
+        .navigationTitle("Explore")
     }
 }
 
 struct ExploreView_Previews: PreviewProvider {
     static var previews: some View {
-        ExploreView(featuredListings: ["1", "2", "3", "4", "5", "6"])
+        ExploreView(featuredListings: .mockFeatured)
     }
 }

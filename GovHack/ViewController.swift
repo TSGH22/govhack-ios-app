@@ -8,10 +8,16 @@
 import UIKit
 import SwiftUI
 
-class ViewController: UINavigationController {
+class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.pushViewController(UIHostingController(rootView: RootView()), animated: true)
+        let v = UIHostingController(rootView: RootView())
+        v.willMove(toParent: self)
+        v.view.frame = view.bounds
+        v.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(v.view)
+        addChild(v)
+        v.didMove(toParent: self)
     }
 }

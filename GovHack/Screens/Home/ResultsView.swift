@@ -41,13 +41,7 @@ struct ResultsView: View {
         VStack(alignment: .leading) {
             Text("Highlighted Listings")
                 .padding(.horizontal, 16)
-            ScrollView(.horizontal) {
-                HStack {
-                    ForEach(featuredListings, id: \.id) {
-                        FeaturedListingView(image: "office", address: "\($0.location.streetAddress), \($0.location.suburb)")
-                    }
-                }.padding(.leading, 16)
-            }
+            FeaturedListingsCarouselView(featuredListings: featuredListings)
             
             ForEach(results, id: \.id) {
                 ListingView(property: $0, spaceTypes: filter.spaceNames ?? [])
@@ -96,16 +90,18 @@ struct ResultsView: View {
     }
     
     var body: some View {
-        switch viewState {
-        case .loading:
-            VStack {
-                Spacer()
-                ProgressView()
-                Spacer()
+        Group {
+            switch viewState {
+            case .loading:
+                VStack {
+                    Spacer()
+                    ProgressView()
+                    Spacer()
+                }
+            case .content: contentView
+            case .error: Text("Something went wrong")
             }
-        case .content: contentView
-        case .error: Text("Something went wrong")
-        }
+        }.navigationTitle("Results")
     }
 }
 
