@@ -16,15 +16,43 @@ struct FilledButton: View {
         Button(text, action: {
             action()
         })
-        .frame(height: 32)
-        .font(.urbanistBodySemiboldMedium)
+        .frame(height: 45)
+        .font(.urbanistBodyBoldXLarge)
         .foregroundColor(.white)
         .padding(.horizontal, 12)
         .background(
-            RoundedRectangle(cornerRadius: 16)
+            RoundedRectangle(cornerRadius: 23)
                 .fill(Color.urbanPrimary)
         )
-        .cornerRadius(16)
+        .cornerRadius(23)
+    }
+
+}
+
+struct TallFilledButton: View {
+
+    enum Style {
+        case lighter
+        case darker
+    }
+
+    let text: String
+    let style: Style
+    let action: () -> Void
+
+    var body: some View {
+        Button(text, action: {
+            action()
+        })
+        .frame(minWidth: 180, minHeight: 58, idealHeight: 58, maxHeight: 58)
+        .font(.urbanistBodyBoldXLarge)
+        .foregroundColor(style == .lighter ? .urbanPrimary : .white)
+        .padding(.horizontal, 12)
+        .background(
+            RoundedRectangle(cornerRadius: 29)
+                .fill(style == .lighter ? Color.urbanSecondary300 : Color.urbanPrimary)
+        )
+        .cornerRadius(29)
     }
 
 }
@@ -40,10 +68,10 @@ struct ToggleButton: View {
         })
         .frame(height: 38)
         .padding(.horizontal, 12)
-        .background(isSelected ? AnyView(RoundedRectangle(cornerRadius: 19).fill(Color.urbanPrimary)) : AnyView(RoundedRectangle(cornerRadius: 19).stroke(Color.urbanPrimary, lineWidth: 2))
+        .background(isSelected ? AnyView(RoundedRectangle(cornerRadius: 19).fill(Color.urbanPrimary300)) : AnyView(RoundedRectangle(cornerRadius: 19).stroke(Color.urbanPrimary300, lineWidth: 2))
         )
         .font(.urbanistBodySemiboldLarge)
-        .foregroundColor(isSelected ? .white : .urbanPrimary)
+        .foregroundColor(isSelected ? .white : .urbanPrimary300)
     }
 
 }
@@ -60,7 +88,7 @@ struct Lozenge: View {
         .padding(.horizontal, 10)
         .background(
             RoundedRectangle(cornerRadius: 16)
-                .fill(Color.urbanPrimary)
+                .fill(Color.urbanPrimary300)
         )
         .cornerRadius(16)
     }
@@ -73,11 +101,16 @@ struct UIKit_Previews: PreviewProvider {
             FilledButton(text: "Do the thing!", action: {})
             HStack {
                 ToggleButton(text: "Toggled On", isSelected: .constant(true))
-                Spacer()
+                ToggleButton(text: "Toggled Off", isSelected: .constant(false))
             }
-            ToggleButton(text: "Toggled Off", isSelected: .constant(false))
-            Lozenge(text: "Small")
-            Lozenge(text: "Looooong neck")
+            HStack {
+                Lozenge(text: "Small")
+                Lozenge(text: "Looooong neck")
+            }
+            HStack {
+                TallFilledButton(text: "Next", style: .darker, action: {})
+                TallFilledButton(text: "Back", style: .lighter, action: {})
+            }
         }
         .previewLayout(.sizeThatFits)
     }

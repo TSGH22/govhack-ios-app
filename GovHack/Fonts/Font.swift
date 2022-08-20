@@ -38,7 +38,11 @@ extension Font {
 extension Color {
 
     static let urbanPrimary = Color(hex: 0x2B1766)
+    static let urbanPrimary400 = Color(hex: 0x402E75)
+    static let urbanPrimary300 = Color(hex: 0x554585)
     static let urbanSecondary = Color(hex: 0x61C1C8)
+    static let urbanSecondary400 = Color(hex: 0x90D4D9)
+    static let urbanSecondary300 = Color(hex: 0xC0E6E9)
     static let urbanError = Color(hex: 0xF75555)
     static let urbanSuccess = Color(hex: 0x0BDD74)
 
