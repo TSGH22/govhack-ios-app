@@ -24,7 +24,7 @@ struct NormalMapView: UIViewRepresentable {
 
         mapView.setRegion(displayedRegion, animated: false)
 
-        mapView.mapType = .standard // Muted looks so bad, doesn't remove POIs
+        mapView.mapType = .mutedStandard // Muted looks so bad, doesn't remove POIs
         mapView.pointOfInterestFilter = .init(including: [.cafe, .carRental, .parking, .hotel, .evCharger, .publicTransport])
         mapView.showsBuildings = true
 
