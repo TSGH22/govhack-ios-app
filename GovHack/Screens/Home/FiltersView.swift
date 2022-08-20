@@ -26,7 +26,7 @@ struct FiltersView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                Text("Tell us what you need")
+                Text("Where do you want to work?")
                 TextField("Suburb", text: $viewModel.searchText)
                     .textFieldStyle(.roundedBorder)
                     .keyboardType(.alphabet)
@@ -81,10 +81,17 @@ struct FiltersView: View {
                     }
                 }
                 .frame(maxWidth: .infinity)
+
+                Button("Search") {
+
+                }
             }
         }
         .padding(.horizontal, 16)
         .background(Color.gray.edgesIgnoringSafeArea(.all))
+        .onAppear {
+            locationFieldIsFocused = true
+        }
     }
 }
 

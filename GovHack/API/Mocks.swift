@@ -38,3 +38,11 @@ extension PropertyModel {
         )
     }
 }
+
+extension PropertyModel.Space {
+
+    static var mock: Self {
+        .init(id: UUID().uuidString, name: .boardroom, capacity: 5, dailyPrice: 50, availabilty: .init(startDate: "10/10/2022", endDate: "11/11/2022"))
+    }
+
+}

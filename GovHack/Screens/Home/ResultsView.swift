@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 enum ViewType {
     case list
@@ -55,10 +56,14 @@ struct ResultsView: View {
     }
     
     private func mapView(size: CGSize) -> some View {
-        NormalMapView(places: results.map({
-            .init(propertyId: $0.id, coordinate: .init(latitude: .init($0.location.lat), longitude: .init($0.location.long)))
-        }), selectedPlace: .constant(nil))
-            .frame(width: size.width, height: size.height)
+        NormalMapView(
+            places: results.map({
+                .init(propertyId: $0.id, coordinate: .init(latitude: .init($0.location.lat), longitude: .init($0.location.long)))
+            }),
+            selectedPlace: .constant(nil),
+            displayedRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: -33.8865505412147, longitude: 151.21161037477057), latitudinalMeters: 1400, longitudinalMeters: 1400))
+        )
+        .frame(width: size.width, height: size.height)
     }
     
     private var contentView: some View {
