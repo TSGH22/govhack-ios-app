@@ -11,14 +11,16 @@ extension FiltersView {
     var page1: some View {
         VStack(alignment: .leading) {
             HeadingView(title: "What", detail: "Space type")
-            HStack {
-                ToggleButton(text: "All", isSelected: $viewModel.spaceAll)
-                ToggleButton(text: "Whole Office", isSelected: $viewModel.spaceWholeOffice)
-                ToggleButton(text: "Meeting Rooms", isSelected: $viewModel.spaceMeetingRoom)
-            }
-            HStack {
-                ToggleButton(text: "Hot Desks", isSelected: $viewModel.spaceDesk)
-                ToggleButton(text: "Studio", isSelected: $viewModel.spaceStudio)
+            Group {
+                HStack {
+                    ToggleButton(text: "All", isSelected: $viewModel.spaceAll)
+                    ToggleButton(text: "Whole Office", isSelected: $viewModel.spaceWholeOffice)
+                    ToggleButton(text: "Meeting Rooms", isSelected: $viewModel.spaceMeetingRoom)
+                }
+                HStack {
+                    ToggleButton(text: "Hot Desks", isSelected: $viewModel.spaceDesk)
+                    ToggleButton(text: "Studio", isSelected: $viewModel.spaceStudio)
+                }
             }
 
             HeadingView(title: "Where", detail: "City or Suburb")
@@ -40,6 +42,7 @@ extension FiltersView {
                     viewModel.forceDisplay(search: viewModel.resolvedLocation)
                 }
             }
+            CheckboxView(title: "Include nearby areas", isOn: $viewModel.showNearbyAreas)
 
             HeadingView(title: "When", detail: "Date & Time")
             HStack {
@@ -79,7 +82,6 @@ extension FiltersView {
                     toolBar.setItems([flexibleSpace, doneButton], animated: false)
                     field.inputAccessoryView = toolBar
                 }
-
         }
     }
 }

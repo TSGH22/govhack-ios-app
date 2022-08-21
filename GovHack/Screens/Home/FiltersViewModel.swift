@@ -28,6 +28,7 @@ class FiltersViewModel: ObservableObject {
     @Published var facParking: Bool = false
     @Published var facContactlessAccess: Bool = false
     @Published var facWifi: Bool = true
+    @Published var showNearbyAreas: Bool = false
     @Published var spaceDesk: Bool = true
     @Published var spaceStudio: Bool = true
     @Published var spaceMeetingRoom: Bool = true
