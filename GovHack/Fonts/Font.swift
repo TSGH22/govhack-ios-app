@@ -39,6 +39,7 @@ extension Color {
 
     static let urbanPrimary = Color(hex: 0x2B1766)
     static let urbanPrimary400 = Color(hex: 0x402E75)
+    static let urbanPrimary500 = Color(hex: 0x2B1766)
     static let urbanPrimary300 = Color(hex: 0x554585)
     static let urbanSecondary = Color(hex: 0x61C1C8)
     static let urbanSecondary400 = Color(hex: 0x90D4D9)
@@ -49,6 +50,8 @@ extension Color {
     static let urbanGrey500 = Color(hex: 0x9E9E9E)
     static let urbanGrey200 = Color(hex: 0xEEEEEE)
     static let urbanGrey900 = Color(hex: 0x212121)
+    static let urbanGrey700 = Color(hex: 0x616161)
+    static let urbanPurple = Color(hex: 0xF5F2FF)
 
     init(hex: UInt, alpha: Double = 1) {
         self.init(

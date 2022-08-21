@@ -45,11 +45,11 @@ struct FiltersView: View {
                 }
                 .padding(.horizontal, 16)
                 HStack {
-                    TallFilledButton(text: "Back", style: .lighter) {
+                    TallFilledButton(text: "Back", style: .lighter, width: 180) {
                         viewModel.goBack()
                     }
                     .opacity(viewModel.backButtonVisible ? 1.0 : 0.0)
-                    TallFilledButton(text: viewModel.nextButtonTitle, style: .darker) {
+                    TallFilledButton(text: viewModel.nextButtonTitle, style: .darker, width: 180) {
                         viewModel.goNext()
                     }
                 }

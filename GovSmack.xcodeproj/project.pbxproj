@@ -442,6 +442,7 @@
 			mainGroup = 0443710128AFC6120060C4FC;
 			packageReferences = (
 				04062B2728B10F5800F8EB8F /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				7000535B28B1B67B00DC7CDA /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 0443710B28AFC6120060C4FC /* Products */;
 			projectDirPath = "";
@@ -887,6 +888,14 @@
 
 /* Begin XCRemoteSwiftPackageReference section */
 		04062B2728B10F5800F8EB8F /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		7000535B28B1B67B00DC7CDA /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
 			requirement = {

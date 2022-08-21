@@ -129,6 +129,7 @@ struct TallFilledButton: View {
 
     let text: String
     let style: Style
+    let width: CGFloat
     let action: () -> Void
 
     var body: some View {
@@ -136,7 +137,7 @@ struct TallFilledButton: View {
             action()
         } label: {
             Text(text)
-                .frame(minWidth: 180, minHeight: 58, idealHeight: 58, maxHeight: 58)
+                .frame(minWidth: width, minHeight: 58, idealHeight: 58, maxHeight: 58)
                 .font(.urbanistBodyBoldXLarge)
                 .foregroundColor(style == .lighter ? .urbanPrimary : .white)
                 .padding(.horizontal, 12)
@@ -181,20 +182,48 @@ struct ToggleButton: View {
 }
 
 struct Lozenge: View {
-
     let text: String
+    let font: Font
+    let backgroundColor: Color
+    let textColor: Color
+    let image: Image?
+
+    init(
+        text: String,
+        font: Font = .urbanistBodyBoldSmall,
+        backgroundColor: Color = .urbanPrimary300,
+        textColor: Color = .white,
+        image: Image? = nil
+    ) {
+        self.text = text
+        self.font = font
+        self.backgroundColor = backgroundColor
+        self.textColor = textColor
+        self.image = image
+    }
+
+    var cornerRadius: CGFloat {
+        image == nil ? 16 : 25
+    }
 
     var body: some View {
-        Text(text)
-        .frame(height: 20)
-        .font(.urbanistBodyBoldSmall)
-        .foregroundColor(.white)
+        HStack(spacing: .zero) {
+            if let image = image {
+                image.padding(.trailing, 7)
+            }
+
+            Text(text)
+            .frame(height: 20)
+            .font(font)
+            .foregroundColor(textColor)
+        }
         .padding(.horizontal, 10)
+        .padding(.vertical, image == nil ? 0 : 10)
         .background(
-            RoundedRectangle(cornerRadius: 16)
-                .fill(Color.urbanPrimary300)
+            RoundedRectangle(cornerRadius: cornerRadius)
+                .fill(backgroundColor)
         )
-        .cornerRadius(16)
+        .cornerRadius(cornerRadius)
     }
 
 }
@@ -218,14 +247,21 @@ struct UIKit_Previews: PreviewProvider {
                 Lozenge(text: "Looooong neck")
             }
             HStack {
-                TallFilledButton(text: "Next", style: .darker, action: {})
-                TallFilledButton(text: "Back", style: .lighter, action: {})
+                TallFilledButton(text: "Next", style: .darker, width: 180, action: {})
+                TallFilledButton(text: "Back", style: .lighter, width: 180, action: {})
             }
 
             HStack {
                 CheckboxView(title: "Something is off", isOn: .constant(false))
                 CheckboxView(title: "Coles Radio", isOn: .constant(true))
             }
+            Lozenge(
+                text: "Up to 12 people",
+                font: .urbanistBodySemiboldMedium,
+                backgroundColor: .urbanPurple,
+                textColor: .urbanGrey900,
+                image: Image("starIcon")
+            )
         }
         .previewLayout(.sizeThatFits)
     }
