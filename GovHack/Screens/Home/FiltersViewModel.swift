@@ -22,18 +22,23 @@ class FiltersViewModel: ObservableObject {
     @Published var maxPrice: Float = 100
     @Published var facLifts: Bool = false
     @Published var facShowers: Bool = false
-    @Published var facMonitors: Bool = true
+    @Published var facMonitors: Bool = false
+    @Published var facStandingDesks: Bool = false
+    @Published var facKitchen: Bool = false
+    @Published var facToilet: Bool = false
+    @Published var facWhiteboard: Bool = false
     @Published var facProjector: Bool = false
     @Published var facAccessibleAccess: Bool = false
     @Published var facParking: Bool = false
+    @Published var facAircon: Bool = false
     @Published var facContactlessAccess: Bool = false
-    @Published var facWifi: Bool = true
+    @Published var facWifi: Bool = false
     @Published var showNearbyAreas: Bool = false
-    @Published var spaceDesk: Bool = true
-    @Published var spaceStudio: Bool = true
-    @Published var spaceMeetingRoom: Bool = true
+    @Published var spaceDesk: Bool = false
+    @Published var spaceStudio: Bool = false
+    @Published var spaceMeetingRoom: Bool = false
     @Published var spaceAll: Bool = true
-    @Published var spaceWholeOffice: Bool = true
+    @Published var spaceWholeOffice: Bool = false
 
     @Published var dateFrom: Date?
     @Published var dateTo: Date?
