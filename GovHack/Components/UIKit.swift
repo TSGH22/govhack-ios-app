@@ -132,18 +132,20 @@ struct TallFilledButton: View {
     let action: () -> Void
 
     var body: some View {
-        Button(text, action: {
+        Button {
             action()
-        })
-        .frame(minWidth: 180, minHeight: 58, idealHeight: 58, maxHeight: 58)
-        .font(.urbanistBodyBoldXLarge)
-        .foregroundColor(style == .lighter ? .urbanPrimary : .white)
-        .padding(.horizontal, 12)
-        .background(
-            RoundedRectangle(cornerRadius: 29)
-                .fill(style == .lighter ? Color.urbanSecondary300 : Color.urbanPrimary)
-        )
-        .cornerRadius(29)
+        } label: {
+            Text(text)
+                .frame(minWidth: 180, minHeight: 58, idealHeight: 58, maxHeight: 58)
+                .font(.urbanistBodyBoldXLarge)
+                .foregroundColor(style == .lighter ? .urbanPrimary : .white)
+                .padding(.horizontal, 12)
+                .background(
+                    RoundedRectangle(cornerRadius: 29)
+                        .fill(style == .lighter ? Color.urbanSecondary300 : Color.urbanPrimary)
+                )
+                .cornerRadius(29)
+        }
     }
 
 }

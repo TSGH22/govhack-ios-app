@@ -62,6 +62,8 @@ class FiltersViewModel: ObservableObject {
     @Published var rating5: Bool = false
 
     @Published var priceRangeSlider: ClosedRange<Float> = 20...100
+    @Published var backButtonVisible: Bool = false
+    @Published var nextButtonTitle = "Next"
 
     private let geocoder = CLGeocoder()
 
@@ -84,6 +86,30 @@ class FiltersViewModel: ObservableObject {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             self.forceStopGeocoding = false
         }
+    }
+
+    func goBack() {
+        guard currentPage > 0 else { return }
+        currentPage -= 1
+        updateNextButtonTitle()
+    }
+
+    func goNext() {
+        if currentPage == 2 {
+            // TODO: push results please
+        } else {
+            currentPage += 1
+        }
+        updateNextButtonTitle()
+    }
+
+    func updateNextButtonTitle() {
+        if currentPage == 2 {
+            nextButtonTitle = "Find Spaces"
+        } else {
+            nextButtonTitle = "Next"
+        }
+        backButtonVisible = currentPage > 0
     }
 
 }

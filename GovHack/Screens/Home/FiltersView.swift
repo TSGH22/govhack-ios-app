@@ -26,18 +26,38 @@ struct FiltersView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack(alignment: .leading) {
-                    if viewModel.currentPage == 0 {
-                        page1
+            VStack {
+                Image("TopBanner\(viewModel.currentPage + 1)")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: 1000000)
+                    .padding(.top, 10)
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        if viewModel.currentPage == 0 {
+                            page1
+                        } else if viewModel.currentPage == 1 {
+                            page2
+                        } else if viewModel.currentPage == 2 {
+                            page3
+                        }
+                    }
+                }
+                .padding(.horizontal, 16)
+                HStack {
+                    TallFilledButton(text: "Back", style: .lighter) {
+                        viewModel.goBack()
+                    }
+                    .opacity(viewModel.backButtonVisible ? 1.0 : 0.0)
+                    TallFilledButton(text: viewModel.nextButtonTitle, style: .darker) {
+                        viewModel.goNext()
                     }
                 }
             }
-            .padding(.horizontal, 16)
             .onAppear {
                 locationFieldIsFocused = true
             }
-            .navigationTitle("Filters")
+            .navigationBarHidden(true)
         }
     }
 }
