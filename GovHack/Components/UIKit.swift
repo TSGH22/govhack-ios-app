@@ -187,19 +187,22 @@ struct Lozenge: View {
     let backgroundColor: Color
     let textColor: Color
     let image: Image?
+    let imageSize: CGFloat?
 
     init(
         text: String,
         font: Font = .urbanistBodyBoldSmall,
         backgroundColor: Color = .urbanPrimary300,
         textColor: Color = .white,
-        image: Image? = nil
+        image: Image? = nil,
+        imageSize: CGFloat? = nil
     ) {
         self.text = text
         self.font = font
         self.backgroundColor = backgroundColor
         self.textColor = textColor
         self.image = image
+        self.imageSize = imageSize
     }
 
     var cornerRadius: CGFloat {
@@ -209,7 +212,11 @@ struct Lozenge: View {
     var body: some View {
         HStack(spacing: .zero) {
             if let image = image {
-                image.padding(.trailing, 7)
+                if let imageSize = imageSize {
+                    image.padding(.trailing, 7).frame(width: imageSize, height: imageSize).aspectRatio(contentMode: .fit)
+                } else {
+                    image.padding(.trailing, 7)
+                }
             }
 
             Text(text)

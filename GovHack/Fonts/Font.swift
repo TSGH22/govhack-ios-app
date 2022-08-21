@@ -52,6 +52,7 @@ extension Color {
     static let urbanGrey900 = Color(hex: 0x212121)
     static let urbanGrey700 = Color(hex: 0x616161)
     static let urbanPurple = Color(hex: 0xF5F2FF)
+    static let transparentWhite = Color(hex: 0xF0F0F0E5)
 
     init(hex: UInt, alpha: Double = 1) {
         self.init(
