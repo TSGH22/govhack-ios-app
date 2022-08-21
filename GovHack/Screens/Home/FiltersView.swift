@@ -77,6 +77,27 @@ struct FiltersView: View {
                             }
                     }
 
+                    HeadingView(title: "Who", detail: "Occupancy")
+                    NiceTextField(icon: nil, placeholder: "Number of People", text: $viewModel.numberOfPeopleField)
+                        .keyboardType(.numberPad)
+                        .introspectTextField { field in
+                            var color: UIColor = .black
+                            if let c = Color.urbanPrimary.cgColor {
+                                color = UIColor(cgColor: c)
+                            }
+                            let toolBar = UIToolbar()
+                            toolBar.sizeToFit()
+                            toolBar.tintColor = color
+                            let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+                            let doneButton = UIBarButtonItem()
+                            doneButton.tintColor = color
+                            doneButton.primaryAction = UIAction(title: "Done", image: nil, identifier: nil, discoverabilityTitle: nil, attributes: [], state: .off, handler: { _ in
+                                field.endEditing(true)
+                            })
+                            toolBar.setItems([flexibleSpace, doneButton], animated: false)
+                            field.inputAccessoryView = toolBar
+                        }
+
                 }
             }
             .padding(.horizontal, 16)

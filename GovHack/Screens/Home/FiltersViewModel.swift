@@ -39,6 +39,8 @@ class FiltersViewModel: ObservableObject {
     @Published var dateFromString: String = ""
     @Published var dateToString: String = ""
 
+    @Published var numberOfPeopleField: String = ""
+
     private let geocoder = CLGeocoder()
 
     let dateFormatter: DateFormatter = {
