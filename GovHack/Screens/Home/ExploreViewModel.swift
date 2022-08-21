@@ -14,6 +14,11 @@ final class ExploreViewModel: ObservableObject {
     @Published var featuredListings: [PropertyModel] = []
     @Published var mapPlaces: [MapLocation] = []
 
+    init(featuredListings: [PropertyModel] = [], mapPlaces: [MapLocation] = []) {
+        self.featuredListings = featuredListings
+        self.mapPlaces = mapPlaces
+    }
+    
     func loadContent() {
         API.shared.fetchFeaturedProperties { [weak self] result in
             switch result {
