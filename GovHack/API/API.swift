@@ -10,7 +10,7 @@ import Foundation
 final class API {
 
     static let shared = API()
-    let domain = URL(string: "https://test.com")!
+    let domain = URL(string: "http://dpasc.net/Property")!
     let session: URLSession = {
         let config = URLSessionConfiguration.ephemeral
         config.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData

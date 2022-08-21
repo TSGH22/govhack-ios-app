@@ -26,7 +26,7 @@ extension PropertyModel {
     
     func occupancy(for spaceTypes: [Space.Name]) -> Int {
         spaces.reduce(0) { partialResult, space in
-            return spaceTypes.contains(space.name) ? partialResult + space.capacity : partialResult
+            return spaceTypes.contains(space.type) ? partialResult + space.capacity : partialResult
         }
     }
 }

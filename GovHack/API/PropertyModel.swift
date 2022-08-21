@@ -11,7 +11,7 @@ struct PropertyModel: Codable {
     let id: String
     let images: [URL]
     let floorPlan: URL
-    let decription: String
+    let description: String
     let facilities: Facilities
     let owner: Owner
     let location: Location
@@ -37,8 +37,8 @@ extension PropertyModel {
 
     struct Owner: Codable {
         let company: String
-        let name: String
-        let email: String
+        let contactName: String
+        let contactEmail: String
     }
 
     struct Location: Codable {
@@ -49,7 +49,7 @@ extension PropertyModel {
     }
 
     enum DressCode: String, Codable {
-        case casual, smart_casual, formal
+        case casual = "Casual", smart_casual = "Smart Casual", formal = "Formal"
     }
 
     struct SpaceRating: Codable {
@@ -59,20 +59,20 @@ extension PropertyModel {
     }
 
     struct Space: Codable {
-        let id: String
-        let name: Name
+//        let id: String
+        let type: Name
         let capacity: Int
         let dailyPrice: Float
-        let availabilty: Availability
+        let availability: [Availability]
 
         enum Name: String, Codable, CaseIterable {
-            case boardroom, desk, meeting_room
+            case boardroom = "Boardroom", desk = "Desk", meeting_room = "Meeting Room"
         }
     }
 
     struct Availability: Codable {
-        let startDate: String
-        let endDate: String
+        let startDate: Int
+        let endDate: Int
     }
 
 }

@@ -27,17 +27,17 @@ extension PropertyModel {
                 .init(string: "https://i1.au.reastatic.net/712x480,smart=85,r=33,g=40,b=46,quality=60,progressive/e10142aab6cd20c94081d2df660c7d933a085933fd73c74a5c20c9fc4993cc7d/image1.jpg")!,
             ],
             floorPlan: .init(string: "https://wpmedia.roomsketcher.com/content/uploads/2022/01/06145940/What-is-a-floor-plan-with-dimensions.png")!,
-            decription: "description",
+            description: "description",
             facilities: .init(lift: true, shower: nil, monitors: true, projector: nil, stairs: true, accessibleAccess: nil, parking: nil, contactlessAccess: nil),
-            owner: .init(company: "Tigerspike", name: "Tigerspike", email: "tigerspike@tigerspike.com"),
+            owner: .init(company: "Tigerspike", contactName: "Tigerspike", contactEmail: "tigerspike@tigerspike.com"),
             location: .init(lat: -33.8866647, long: 151.2115884, streetAddress: "115 Cooper St", suburb: "Surry Hills"),
             greenRating: 4,
             dressCode: .casual,
             houseRules: "dont be a dumdum",
             spaceRating: .init(cleanliness: 3, noiseLevel: 9, facilities: 5),
             spaces: [
-                .init(id: UUID().uuidString, name: .boardroom, capacity: 5, dailyPrice: 50, availabilty: .init(startDate: "10/10/2022", endDate: "11/11/2022")),
-                .init(id: UUID().uuidString, name: .desk, capacity: 3, dailyPrice: 10, availabilty: .init(startDate: "10/10/2022", endDate: "11/11/2022"))
+                .init(type: .boardroom, capacity: 5, dailyPrice: 50, availability: [.init(startDate: 999, endDate: 99999)]),
+                .init(type: .desk, capacity: 3, dailyPrice: 10, availability: [.init(startDate: 999, endDate: 9999999)])
             ]
         )
     }
@@ -46,7 +46,7 @@ extension PropertyModel {
 extension PropertyModel.Space {
 
     static var mock: Self {
-        .init(id: UUID().uuidString, name: .boardroom, capacity: 5, dailyPrice: 50, availabilty: .init(startDate: "10/10/2022", endDate: "11/11/2022"))
+        .init(type: .boardroom, capacity: 5, dailyPrice: 50, availability: [.init(startDate: 999999, endDate: 999999)])
     }
 
 }

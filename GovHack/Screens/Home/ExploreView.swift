@@ -9,16 +9,13 @@ import SwiftUI
 import MapKit
 
 struct ExploreView: View {
-    @State var featuredListings: [PropertyModel]
-    @State var mapPlaces: [MapLocation]
     @State var selectedPlace: MapLocation?
     @State var filtersIsPresented: Bool = false
     @State var searchModel: SearchRequestModel?
     @State var showResults: Bool = false
+    @ObservedObject var viewModel = ExploreViewModel()
 
-    init(featuredListings: [PropertyModel] = .mockFeatured, mapPlaces: [MapLocation] = []) {
-        self.featuredListings = featuredListings
-        self.mapPlaces = mapPlaces
+    init() {
         self.selectedPlace = nil
     }
     
@@ -33,6 +30,9 @@ struct ExploreView: View {
         .onTapGesture {
             filtersIsPresented = true
         }
+        .onAppear {
+            viewModel.loadContent()
+        }
     }
     
     var body: some View {
@@ -44,7 +44,7 @@ struct ExploreView: View {
                     Divider()
                     Text("Map View")
                     NormalMapView(
-                        places: mapPlaces,
+                        places: viewModel.mapPlaces,
                         selectedPlace: $selectedPlace,
                         displayedRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: -33.8865505412147, longitude: 151.21161037477057), latitudinalMeters: 1400, longitudinalMeters: 1400))
                     )
@@ -54,7 +54,7 @@ struct ExploreView: View {
                     Text("Featured")
                 }
                 .padding(.leading, 16)
-                FeaturedListingsCarouselView(featuredListings: featuredListings)
+                FeaturedListingsCarouselView(featuredListings: viewModel.featuredListings)
             }
             .sheet(isPresented: $filtersIsPresented) {
                 FiltersView(searchModel: $searchModel)
@@ -84,6 +84,6 @@ struct ExploreView: View {
 
 struct ExploreView_Previews: PreviewProvider {
     static var previews: some View {
-        ExploreView(featuredListings: .mockFeatured)
+        ExploreView()
     }
 }
