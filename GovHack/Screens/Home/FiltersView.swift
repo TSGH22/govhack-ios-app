@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Introspect
 
 enum Facility: String, CaseIterable {
     case lift
@@ -27,75 +28,95 @@ struct FiltersView: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading) {
-                    Text("Where do you want to work?")
-                    TextField("Suburb", text: $viewModel.searchText)
-                        .textFieldStyle(.roundedBorder)
-                        .keyboardType(.alphabet)
+                    HeadingView(title: "What", detail: "Space type")
+                    HStack {
+                        ToggleButton(text: "All", isSelected: $viewModel.spaceAll)
+                        ToggleButton(text: "Whole Office", isSelected: $viewModel.spaceWholeOffice)
+                        ToggleButton(text: "Meeting Rooms", isSelected: $viewModel.spaceMeetingRoom)
+                    }
+                    HStack {
+                        ToggleButton(text: "Hot Desks", isSelected: $viewModel.spaceDesk)
+                        ToggleButton(text: "Studio", isSelected: $viewModel.spaceStudio)
+                    }
+
+                    HeadingView(title: "Where", detail: "City or Suburb")
+                    NiceTextField(icon: nil, placeholder: "Search for City or Suburb", text: $viewModel.searchText)
                         .focused($locationFieldIsFocused)
-                    Text(viewModel.resolvedLocation)
+                    if !viewModel.resolvedLocation.isEmpty {
+                        HStack {
+                            Image(uiImage: UIImage(named: "Location")!)
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                            Text(viewModel.resolvedLocation)
+                                .font(.urbanistBodyMedium)
+                                .foregroundColor(.urbanGrey500)
+                        }
+                        .frame(height: 50)
+                        .background(Color.urbanGrey50)
                         .onTapGesture {
                             locationFieldIsFocused = false
                             viewModel.forceDisplay(search: viewModel.resolvedLocation)
                         }
-                    
-                    Text("Maximum Day Rate: $\(viewModel.maxPrice)")
+                    }
+
+                    HeadingView(title: "When", detail: "Date & Time")
                     HStack {
-                        Text("$10")
-                        Slider(value: $viewModel.maxPrice, in: .init(uncheckedBounds: (10, 1000))) { _ in }
-                            .tint(.white)
-                        Text("$1000")
+                        NiceTextField(icon: UIImage(named: "Calendar"), placeholder: "From", text: .constant(viewModel.dateFromString))
+                            .introspectTextField { field in
+                                setupField(field, Date()) { date in
+                                    viewModel.dateFrom = date
+                                }
+                            }
+                        Spacer()
+                            .frame(width: 24)
+                        NiceTextField(icon: UIImage(named: "Calendar"), placeholder: "To", text: .constant(viewModel.dateToString))
+                            .introspectTextField { field in
+                                setupField(field, viewModel.dateFrom ?? Date()) { date in
+                                    viewModel.dateTo = date
+                                }
+                            }
                     }
-                    Text("Space")
-                    VStack {
-                        HStack {
-                            Toggle("Desks", isOn: $viewModel.spaceDesk)
-                                .toggleStyle(.button)
-                            Toggle("Meeting Rooms", isOn: $viewModel.spaceMeetingRoom)
-                                .toggleStyle(.button)
-                            Toggle("Boardrooms", isOn: $viewModel.spaceBoardroom)
-                                .toggleStyle(.button)
-                        }
-                    }
-                    .frame(maxWidth: .infinity)
-                    
-                    Text("Facilities")
-                    VStack {
-                        HStack {
-                            Toggle("Wifi", isOn: $viewModel.facWifi)
-                                .toggleStyle(.button)
-                            Toggle("Monitors", isOn: $viewModel.facMonitors)
-                                .toggleStyle(.button)
-                            Toggle("Projector", isOn: $viewModel.facProjector)
-                                .toggleStyle(.button)
-                        }
-                        HStack {
-                            Toggle("Accessible Access", isOn: $viewModel.facAccessibleAccess)
-                                .toggleStyle(.button)
-                            Toggle("Parking Available", isOn: $viewModel.facParking)
-                                .toggleStyle(.button)
-                        }
-                        HStack {
-                            Toggle("Instant Entry", isOn: $viewModel.facContactlessAccess)
-                                .toggleStyle(.button)
-                            Toggle("Showers", isOn: $viewModel.facShowers)
-                                .toggleStyle(.button)
-                        }
-                    }
-                    .frame(maxWidth: .infinity)
-                    
-                    Button("Search") {
-                        searchModel = .init(lat: 0, long: 0, radius: 0, maxPrice: nil, includedFacilities: nil, spaceNames: nil, capacity: nil)
-                    }.frame(maxWidth: .infinity, alignment: .center)
+
                 }
             }
             .padding(.horizontal, 16)
-            .background(Color.gray.edgesIgnoringSafeArea(.all))
             .onAppear {
                 locationFieldIsFocused = true
             }
             .navigationTitle("Filters")
         }
     }
+}
+
+extension FiltersView {
+
+    func setupField(_ field: UITextField, _ min: Date, save: @escaping (Date) -> ()) {
+        var color: UIColor = .black
+        if let c = Color.urbanPrimary.cgColor {
+            color = UIColor(cgColor: c)
+        }
+
+        let datePicker = UIDatePicker()
+        field.inputView = datePicker
+        datePicker.maximumDate = .distantFuture
+        datePicker.minimumDate = min
+        datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.tintColor = color
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        toolBar.tintColor = color
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem()
+        doneButton.tintColor = color
+        doneButton.primaryAction = UIAction(title: "Done", image: nil, identifier: nil, discoverabilityTitle: nil, attributes: [], state: .off, handler: { _ in
+            save(datePicker.date)
+            field.endEditing(true)
+        })
+        toolBar.setItems([flexibleSpace, doneButton], animated: false)
+        field.inputAccessoryView = toolBar
+    }
+
 }
 
 struct FiltersView_Previews: PreviewProvider {

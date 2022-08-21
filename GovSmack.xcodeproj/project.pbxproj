@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04062B2928B10F5800F8EB8F /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 04062B2828B10F5800F8EB8F /* Introspect */; };
 		042C4AEC28B0A65A00DF8337 /* FiltersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C4AEB28B0A65A00DF8337 /* FiltersViewModel.swift */; };
 		042C4AEF28B0AD4B00DF8337 /* MapKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C4AEE28B0AD4B00DF8337 /* MapKitExtensions.swift */; };
 		042C4AF228B0C1B600DF8337 /* EnquireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C4AF128B0C1B600DF8337 /* EnquireView.swift */; };
@@ -150,6 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04062B2928B10F5800F8EB8F /* Introspect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +350,9 @@
 			dependencies = (
 			);
 			name = Spacey;
+			packageProductDependencies = (
+				04062B2828B10F5800F8EB8F /* Introspect */,
+			);
 			productName = GovHack;
 			productReference = 0443710A28AFC6120060C4FC /* Spacey.app */;
 			productType = "com.apple.product-type.application";
@@ -420,6 +425,9 @@
 				Base,
 			);
 			mainGroup = 0443710128AFC6120060C4FC;
+			packageReferences = (
+				04062B2728B10F5800F8EB8F /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+			);
 			productRefGroup = 0443710B28AFC6120060C4FC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -856,6 +864,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		04062B2728B10F5800F8EB8F /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		04062B2828B10F5800F8EB8F /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04062B2728B10F5800F8EB8F /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0443710228AFC6120060C4FC /* Project object */;
 }

@@ -29,11 +29,24 @@ class FiltersViewModel: ObservableObject {
     @Published var facContactlessAccess: Bool = false
     @Published var facWifi: Bool = true
     @Published var spaceDesk: Bool = true
-    @Published var spaceBoardroom: Bool = true
+    @Published var spaceStudio: Bool = true
     @Published var spaceMeetingRoom: Bool = true
+    @Published var spaceAll: Bool = true
+    @Published var spaceWholeOffice: Bool = true
 
+    @Published var dateFrom: Date?
+    @Published var dateTo: Date?
+    @Published var dateFromString: String = ""
+    @Published var dateToString: String = ""
 
     private let geocoder = CLGeocoder()
+
+    let dateFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateStyle = .medium
+        f.timeStyle = .none
+        return f
+    }()
 
     init() {
         setup()
@@ -51,7 +64,6 @@ class FiltersViewModel: ObservableObject {
 
 }
 
-
 extension FiltersViewModel {
 
     func setup() {
@@ -63,6 +75,47 @@ extension FiltersViewModel {
                 self?.reverseGeocode(searchText: value)
             }
             .store(in: &cancellables)
+
+        // I was in a hurry
+        $spaceAll.sink { [weak self] isOn in
+            guard isOn else { return }
+            self?.spaceDesk = false
+            self?.spaceStudio = false
+            self?.spaceMeetingRoom = false
+            self?.spaceWholeOffice = false
+        }
+        .store(in: &cancellables)
+        $spaceDesk.sink { [weak self] isOn in
+            guard isOn else { return }
+            self?.spaceAll = false
+        }
+        .store(in: &cancellables)
+        $spaceStudio.sink { [weak self] isOn in
+            guard isOn else { return }
+            self?.spaceAll = false
+        }
+        .store(in: &cancellables)
+        $spaceMeetingRoom.sink { [weak self] isOn in
+            guard isOn else { return }
+            self?.spaceAll = false
+        }
+        .store(in: &cancellables)
+        $spaceWholeOffice.sink { [weak self] isOn in
+            guard isOn else { return }
+            self?.spaceAll = false
+        }
+        .store(in: &cancellables)
+
+        $dateTo.sink { [weak self] date in
+            guard let date = date else { return }
+            self?.dateToString = self?.dateFormatter.string(from: date) ?? ""
+        }
+        .store(in: &cancellables)
+        $dateFrom.sink { [weak self] date in
+            guard let date = date else { return }
+            self?.dateFromString = self?.dateFormatter.string(from: date) ?? ""
+        }
+        .store(in: &cancellables)
     }
 
     func reverseGeocode(searchText: String) {

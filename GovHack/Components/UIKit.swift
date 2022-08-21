@@ -7,6 +7,27 @@
 
 import SwiftUI
 
+struct HeadingView: View {
+    let title: String
+    let detail: String
+
+    var body: some View {
+        VStack {
+            Spacer()
+                .frame(height: 24)
+            HStack {
+                Text(title)
+                    .font(.urbanistHeading6)
+                    .foregroundColor(.urbanGrey900)
+                Spacer()
+                Text(detail)
+                    .font(.urbanistBodyXLarge)
+                    .foregroundColor(.urbanGrey500)
+            }
+        }
+    }
+}
+
 struct NiceTextField: View {
     let icon: UIImage?
     let placeholder: String
@@ -135,6 +156,7 @@ struct Lozenge: View {
 struct UIKit_Previews: PreviewProvider {
     static var previews: some View {
         VStack(alignment: .leading) {
+            HeadingView(title: "Here are some components", detail: "They are epic")
             HStack {
                 NiceTextField(icon: nil, placeholder: "Enter text here", text: .constant(""))
                 NiceTextField(icon: nil, placeholder: "Enter text here", text: .constant("Hello!"))
