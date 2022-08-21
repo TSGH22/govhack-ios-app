@@ -104,7 +104,7 @@ class FiltersViewModel: ObservableObject {
                 radius: 2000,
                 maxPrice: Int(priceRangeSlider.upperBound),
                 facilities: [:],
-                spaceNames: [],
+                spaces: [],
                 capacity: nil
             )
         } else {

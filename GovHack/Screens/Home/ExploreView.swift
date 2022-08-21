@@ -122,7 +122,7 @@ struct ExploreView: View {
             }
             NavigationLink(isActive: $showResults) {
                 if let filter = searchModel {
-                    ResultsView(featuredListings: .mock, results: .mock, filter: filter)
+                    ResultsView(featuredListings: viewModel.featuredListings, results: [], filter: filter)
                 }
             } label: {
                 EmptyView()

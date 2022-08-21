@@ -17,7 +17,7 @@ extension API {
     func searchProperties(request body: SearchRequestModel, completion: @escaping (Result<[PropertyModel], Error>) -> Void) {
         var r = URLRequest(url: domain.appendingPathComponent("search"))
         r.httpBody = try! JSONEncoder().encode(body)
-        r.httpMethod = "GET"
+        r.httpMethod = "POST"
         r.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request(r, completion: completion)
     }
