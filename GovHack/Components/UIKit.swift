@@ -28,6 +28,39 @@ struct HeadingView: View {
     }
 }
 
+struct CheckboxView: View {
+    let title: String
+    @Binding var isOn: Bool
+
+    var body: some View {
+        Button {
+            isOn.toggle()
+        } label: {
+            HStack {
+                ZStack {
+                    if isOn {
+                        RoundedRectangle(cornerRadius: 8)
+                            .fill(Color.urbanPrimary)
+                            .frame(width: 24, height: 24)
+
+                        Image(uiImage: UIImage(named: "Checkmark")!)
+                            .resizable()
+                            .frame(width: 9, height: 8)
+                    } else {
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.urbanPrimary, lineWidth: 3)
+                            .frame(width: 24, height: 24)
+                    }
+                }
+                Text(title)
+                    .font(.urbanistBodySemiboldMedium)
+                    .foregroundColor(.urbanGrey900)
+                Spacer()
+            }
+        }
+    }
+}
+
 struct NiceTextField: View {
     let icon: UIImage?
     let placeholder: String
@@ -174,6 +207,11 @@ struct UIKit_Previews: PreviewProvider {
             HStack {
                 TallFilledButton(text: "Next", style: .darker, action: {})
                 TallFilledButton(text: "Back", style: .lighter, action: {})
+            }
+
+            HStack {
+                CheckboxView(title: "Something is off", isOn: .constant(false))
+                CheckboxView(title: "Coles Radio", isOn: .constant(true))
             }
         }
         .previewLayout(.sizeThatFits)

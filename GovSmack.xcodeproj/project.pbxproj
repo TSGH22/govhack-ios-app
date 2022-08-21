@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		04062B2928B10F5800F8EB8F /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 04062B2828B10F5800F8EB8F /* Introspect */; };
+		04062B2B28B1B20500F8EB8F /* FiltersView+Page1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04062B2A28B1B20500F8EB8F /* FiltersView+Page1.swift */; };
+		04062B2D28B1B29700F8EB8F /* FiltersView+Page2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04062B2C28B1B29700F8EB8F /* FiltersView+Page2.swift */; };
 		042C4AEC28B0A65A00DF8337 /* FiltersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C4AEB28B0A65A00DF8337 /* FiltersViewModel.swift */; };
 		042C4AEF28B0AD4B00DF8337 /* MapKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C4AEE28B0AD4B00DF8337 /* MapKitExtensions.swift */; };
 		042C4AF228B0C1B600DF8337 /* EnquireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C4AF128B0C1B600DF8337 /* EnquireView.swift */; };
@@ -84,6 +86,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04062B2A28B1B20500F8EB8F /* FiltersView+Page1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FiltersView+Page1.swift"; sourceTree = "<group>"; };
+		04062B2C28B1B29700F8EB8F /* FiltersView+Page2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FiltersView+Page2.swift"; sourceTree = "<group>"; };
 		042C4AEB28B0A65A00DF8337 /* FiltersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewModel.swift; sourceTree = "<group>"; };
 		042C4AEE28B0AD4B00DF8337 /* MapKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitExtensions.swift; sourceTree = "<group>"; };
 		042C4AF128B0C1B600DF8337 /* EnquireView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnquireView.swift; sourceTree = "<group>"; };
@@ -327,6 +331,8 @@
 				7000533C28B073B500DC7CDA /* ExploreView.swift */,
 				7000534A28B09B5E00DC7CDA /* SearchResultsView.swift */,
 				7000534C28B09B6700DC7CDA /* FiltersView.swift */,
+				04062B2A28B1B20500F8EB8F /* FiltersView+Page1.swift */,
+				04062B2C28B1B29700F8EB8F /* FiltersView+Page2.swift */,
 				7000534E28B0A60C00DC7CDA /* ResultsView.swift */,
 				042C4AEB28B0A65A00DF8337 /* FiltersViewModel.swift */,
 				7000535928B0CE3000DC7CDA /* ListingDetailView.swift */,
@@ -491,6 +497,7 @@
 			files = (
 				7000535128B0A6ED00DC7CDA /* Mocks.swift in Sources */,
 				0443714E28B097A90060C4FC /* PropertyModel.swift in Sources */,
+				04062B2D28B1B29700F8EB8F /* FiltersView+Page2.swift in Sources */,
 				0443714328B0781F0060C4FC /* MapLocation.swift in Sources */,
 				0443714528B078400060C4FC /* MapCoordinator.swift in Sources */,
 				7000534228B0784400DC7CDA /* MoreView.swift in Sources */,
@@ -515,6 +522,7 @@
 				7000535428B0AB9B00DC7CDA /* ListingView.swift in Sources */,
 				0443715028B098910060C4FC /* SearchRequestModel.swift in Sources */,
 				0443714C28B097590060C4FC /* Requests.swift in Sources */,
+				04062B2B28B1B20500F8EB8F /* FiltersView+Page1.swift in Sources */,
 				0443710E28AFC6120060C4FC /* AppDelegate.swift in Sources */,
 				7000535828B0CD2400DC7CDA /* FeaturedListingsCarouselView.swift in Sources */,
 				7000534128B0784400DC7CDA /* ProfileView.swift in Sources */,
