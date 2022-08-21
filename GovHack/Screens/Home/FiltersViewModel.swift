@@ -102,9 +102,9 @@ class FiltersViewModel: ObservableObject {
                 latitude: region.center.latitude,
                 longitude: region.center.longitude,
                 radius: 2000,
-                maxPrice: nil,
-                includedFacilities: nil,
-                spaceNames: nil,
+                maxPrice: Int(priceRangeSlider.upperBound),
+                facilities: [:],
+                spaceNames: [],
                 capacity: nil
             )
         } else {

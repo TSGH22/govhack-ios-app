@@ -13,9 +13,9 @@ struct SearchRequestModel: Codable, Equatable {
     let longitude: Double
     let radius: Int
 
-    let maxPrice: Double?
-    let includedFacilities: [String]?
-    let spaceNames: [PropertyModel.Space.Name]?
+    let maxPrice: Int?
+    let facilities: [String: Bool]
+    let spaceNames: [PropertyModel.Space.Name]
     let capacity: Int?
 }
 

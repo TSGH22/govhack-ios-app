@@ -44,7 +44,7 @@ struct ResultsView: View {
             FeaturedListingsCarouselView(featuredListings: featuredListings)
             
             ForEach(results, id: \.id) {
-                ListingView(property: $0, spaceTypes: filter.spaceNames ?? [])
+                ListingView(property: $0, spaceTypes: filter.spaceNames)
             }.padding(.horizontal, 16)
         }
     }
@@ -102,11 +102,18 @@ struct ResultsView: View {
             case .error: Text("Something went wrong")
             }
         }.navigationTitle("Results")
+            .onAppear {
+                API.shared.searchProperties(request: filter) { result in
+                    guard case .success(let data) = result else { return }
+                    print("asdsadasdsdsasdas")
+                    results = data
+                }
+            }
     }
 }
 
 struct ResultsView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultsView(featuredListings: .mockFeatured, results: .mock, filter: .init(latitude: 0, longitude: 0, radius: 0, maxPrice: nil, includedFacilities: nil, spaceNames: [.desk, .boardroom], capacity: nil))
+        ResultsView(featuredListings: .mockFeatured, results: .mock, filter: .init(latitude: 0, longitude: 0, radius: 0, maxPrice: nil, facilities: [:], spaceNames: [.desk, .boardroom], capacity: nil))
     }
 }
