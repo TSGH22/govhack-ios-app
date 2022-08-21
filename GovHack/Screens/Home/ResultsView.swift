@@ -26,26 +26,49 @@ struct ResultsView: View {
     @State var viewState: ViewState = .content
     @State var filter: SearchRequestModel
     
+    var searchText: String {
+        var text = ""
+
+        text = filter.spaces.map { $0.rawValue }.joined(separator: ", ")
+
+        if let suburb = filter.suburb {
+            text += " in \(suburb)"
+        }
+
+        return text
+    }
+
     private var searchBar: some View {
         HStack {
-            Text("What you searched")
+            Image(systemName: "magnifyingglass")
+            Text(searchText)
+                .font(.urbanistBodySemiboldMedium)
             Spacer()
             Image(systemName: "slider.horizontal.3") 
         }
         .padding(16)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(RoundedRectangle(cornerRadius: 8).fill(Color.gray))
+        .background(RoundedRectangle(cornerRadius: 8).fill(Color.urbanGrey200))
     }
     
     private var listView: some View {
         VStack(alignment: .leading) {
             Text("Highlighted Listings")
-                .padding(.horizontal, 16)
+                .padding(.horizontal, 24)
+                .font(.urbanistHeading6)
             FeaturedListingsCarouselView(featuredListings: featuredListings)
             
-            ForEach(results, id: \.id) {
-                ListingView(property: $0, spaceTypes: filter.spaces)
-            }.padding(.horizontal, 16)
+            Text("Results")
+                .font(.urbanistHeading5.bold())
+                .padding(.horizontal, 24)
+                .padding(.top, 24)
+            LazyVGrid(columns: [
+                GridItem(.flexible()), GridItem(.flexible())
+            ]) {
+                ForEach(results, id: \.id) {
+                    FeaturedListingView(image: "office", property: $0, space: $0.spaces.first!, backgroundColor: .white)
+                }
+            }.padding(.horizontal, 24)
         }
     }
     
@@ -64,9 +87,10 @@ struct ResultsView: View {
         GeometryReader { proxy in
             ScrollView {
                 VStack(alignment: .leading) {
-                    searchBar.padding(.horizontal, 16)
+                    searchBar.padding(.horizontal, 24)
                     HStack {
-                        Text("Results: \(results.count)")
+                        Text("\(results.count) Results Found")
+                            .font(.urbanistHeading5.bold())
                         Spacer()
                         Picker(selection: $viewType) {
                             Text("List").tag(ViewType.list)
@@ -77,7 +101,8 @@ struct ResultsView: View {
                         .pickerStyle(.segmented)
                         .frame(maxWidth: 150)
                     }
-                    .padding(.horizontal, 16)
+                    .padding(.horizontal, 24)
+                    .padding(.top, 24)
                     
                     if viewType == .list {
                         listView
@@ -101,19 +126,24 @@ struct ResultsView: View {
             case .content: contentView
             case .error: Text("Something went wrong")
             }
-        }.navigationTitle("Results")
-            .onAppear {
-                API.shared.searchProperties(request: filter) { result in
-                    guard case .success(let data) = result else { return }
-                    print("asdsadasdsdsasdas")
-                    results = data
-                }
+        }
+        .navigationTitle("Results")
+        .onAppear {
+            API.shared.searchProperties(request: filter) { result in
+                guard case .success(let data) = result else { return }
+                print("asdsadasdsdsasdas")
+                results = data
             }
+        }
+        .background(Color.white.edgesIgnoringSafeArea(.all))
     }
 }
 
 struct ResultsView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultsView(featuredListings: .mockFeatured, results: .mock, filter: .init(latitude: 0, longitude: 0, radius: 0, maxPrice: nil, facilities: [:], spaces: [.desk, .boardroom], capacity: nil))
+        NavigationView {
+            ResultsView(featuredListings: .mockFeatured, results: .mock, filter: .init(latitude: 0, longitude: 0, radius: 0, maxPrice: nil, facilities: [:], spaces: [.desk, .boardroom], capacity: nil, suburb: "surry hills"))
+        }
     }
 }
+

@@ -14,7 +14,7 @@ struct FeaturedListingsCarouselView: View {
         ScrollView(.horizontal) {
             HStack {
                 ForEach(featuredListings, id: \.id) {
-                    FeaturedListingView(image: "office", property: $0, space: $0.spaces.first!)
+                    FeaturedListingView(image: "office", property: $0, space: $0.spaces.first!, backgroundColor: .urbanPurple)
                 }
             }.padding(.leading, 16)
         }

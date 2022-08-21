@@ -105,7 +105,8 @@ class FiltersViewModel: ObservableObject {
                 maxPrice: Int(priceRangeSlider.upperBound),
                 facilities: [:],
                 spaces: [],
-                capacity: nil
+                capacity: nil,
+                suburb: searchText
             )
         } else {
             currentPage += 1

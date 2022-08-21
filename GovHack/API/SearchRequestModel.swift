@@ -17,6 +17,8 @@ struct SearchRequestModel: Codable, Equatable {
     let facilities: [String: Bool]
     let spaces: [PropertyModel.Space.Name]
     let capacity: Int?
+    
+    let suburb: String?
 }
 
 /*

@@ -77,7 +77,8 @@ struct ExploreView: View {
                             ToggleButton(text: "Studio", isSelected: .constant(false))
                             ToggleButton(text: "Others", isSelected: .constant(false))
                         }
-                    }.padding(.top, 24)
+                    }
+                    .padding(.top, 24)
                     HStack(alignment: .center) {
                         Text("Nearby Spaces (12)")
                             .font(.urbanistHeading5.bold())
@@ -111,7 +112,7 @@ struct ExploreView: View {
                         GridItem(.flexible()), GridItem(.flexible())
                     ]) {
                         ForEach(viewModel.featuredListings, id: \.id) {
-                            FeaturedListingView(image: "office", property: $0, space: $0.spaces.first!)
+                            FeaturedListingView(image: "office", property: $0, space: $0.spaces.first!, backgroundColor: .white)
                         }
                     }
                 }

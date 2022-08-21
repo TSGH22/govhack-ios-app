@@ -11,6 +11,7 @@ struct FeaturedListingView: View {
     let image: String
     let property: PropertyModel
     let space: PropertyModel.Space
+    let backgroundColor: Color
     
     var body: some View {
         NavigationLink {
@@ -68,7 +69,7 @@ struct FeaturedListingView: View {
             }
             .padding(14)
             .frame(width: 182)
-            .background(RoundedRectangle(cornerRadius: 28).fill(Color.white))
+            .background(RoundedRectangle(cornerRadius: 28).fill(backgroundColor).shadow(radius: 1))
         }
         .buttonStyle(.plain)
     }
@@ -82,7 +83,8 @@ struct FeaturedListingView_Previews: PreviewProvider {
                 FeaturedListingView(
                     image: "office",
                     property: .mock,
-                    space: .mock
+                    space: .mock,
+                    backgroundColor: .white
                 )
             }
         }
