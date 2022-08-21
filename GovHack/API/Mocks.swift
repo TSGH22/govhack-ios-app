@@ -30,7 +30,7 @@ extension PropertyModel {
             description: "description",
             facilities: .init(lift: true, shower: nil, monitors: true, projector: nil, stairs: true, accessibleAccess: nil, parking: nil, contactlessAccess: nil),
             owner: .init(company: "Tigerspike", contactName: "Tigerspike", contactEmail: "tigerspike@tigerspike.com"),
-            location: .init(lat: -33.8866647, long: 151.2115884, streetAddress: "115 Cooper St", suburb: "Surry Hills"),
+            location: .init(latitude: -33.8866647, longitude: 151.2115884, streetAddress: "115 Cooper St", suburb: "Surry Hills"),
             greenRating: 4,
             dressCode: .casual,
             houseRules: "dont be a dumdum",

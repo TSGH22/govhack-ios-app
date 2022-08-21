@@ -11,6 +11,7 @@ class MapPin: MKAnnotationView {
 
     override var annotation: MKAnnotation? {
         willSet {
+            displayPriority = .required
             image = UIImage(named: "Location")
         }
     }

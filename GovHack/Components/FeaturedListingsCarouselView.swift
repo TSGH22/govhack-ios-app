@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FeaturedListingsCarouselView: View {
-    @State var featuredListings: [PropertyModel] = []
+    var featuredListings: [PropertyModel] = []
     
     var body: some View {
         ScrollView(.horizontal) {

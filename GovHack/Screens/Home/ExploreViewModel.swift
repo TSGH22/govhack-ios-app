@@ -20,7 +20,7 @@ final class ExploreViewModel: ObservableObject {
             case let .success(models):
                 self?.featuredListings = models
                 self?.mapPlaces = models.map({ prop in
-                    MapLocation(propertyId: prop.id, coordinate: CLLocationCoordinate2D(latitude: 12, longitude: 12))
+                    MapLocation(propertyId: prop.id, coordinate: CLLocationCoordinate2D(latitude: prop.location.latitude, longitude: prop.location.longitude))
                 })
             case let .failure(error):
                 print(error)

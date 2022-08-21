@@ -42,8 +42,8 @@ extension PropertyModel {
     }
 
     struct Location: Codable {
-        let lat: Double
-        let long: Double
+        let latitude: Double
+        let longitude: Double
         let streetAddress: String
         let suburb: String
     }
