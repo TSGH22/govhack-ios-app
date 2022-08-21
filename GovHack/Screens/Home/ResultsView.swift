@@ -107,6 +107,6 @@ struct ResultsView: View {
 
 struct ResultsView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultsView(featuredListings: .mockFeatured, results: .mock, filter: .init(lat: 0, long: 0, radius: 0, maxPrice: nil, includedFacilities: nil, spaceNames: [.desk, .boardroom], capacity: nil))
+        ResultsView(featuredListings: .mockFeatured, results: .mock, filter: .init(latitude: 0, longitude: 0, radius: 0, maxPrice: nil, includedFacilities: nil, spaceNames: [.desk, .boardroom], capacity: nil))
     }
 }

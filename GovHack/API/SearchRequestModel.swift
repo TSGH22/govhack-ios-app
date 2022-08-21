@@ -9,8 +9,8 @@ import Foundation
 
 struct SearchRequestModel: Codable, Equatable {
 
-    let lat: Double
-    let long: Double
+    let latitude: Double
+    let longitude: Double
     let radius: Int
 
     let maxPrice: Double?

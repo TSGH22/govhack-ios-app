@@ -99,9 +99,9 @@ class FiltersViewModel: ObservableObject {
     func goNext() {
         if currentPage == 2 {
             searchModel.wrappedValue = SearchRequestModel(
-                lat: region.center.latitude,
-                long: region.center.longitude,
-                radius: 1000,
+                latitude: region.center.latitude,
+                longitude: region.center.longitude,
+                radius: 2000,
                 maxPrice: nil,
                 includedFacilities: nil,
                 spaceNames: nil,
