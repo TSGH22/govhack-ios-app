@@ -20,10 +20,13 @@ enum Facility: String, CaseIterable {
 }
 
 struct FiltersView: View {
-    @Binding var searchModel: SearchRequestModel?
-    @ObservedObject var viewModel = FiltersViewModel()
+    @ObservedObject var viewModel = FiltersViewModel(searchModel: .constant(nil))
     @FocusState var locationFieldIsFocused: Bool
-    
+
+    init(searchModel: Binding<SearchRequestModel?>) {
+        viewModel.searchModel = searchModel
+    }
+
     var body: some View {
         NavigationView {
             VStack {

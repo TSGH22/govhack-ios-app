@@ -10,6 +10,7 @@ import CoreLocation
 import Combine
 import Contacts
 import MapKit
+import SwiftUI
 
 class FiltersViewModel: ObservableObject {
 
@@ -18,7 +19,7 @@ class FiltersViewModel: ObservableObject {
     @Published var region: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: -33.8865505412147, longitude: 151.21161037477057), latitudinalMeters: 1400, longitudinalMeters: 1400)
     var cancellables: Set<AnyCancellable> = []
     var forceStopGeocoding = false
-
+    var searchModel: Binding<SearchRequestModel?>
     @Published var facLifts: Bool = false
     @Published var facShowers: Bool = false
     @Published var facMonitors: Bool = false
@@ -74,7 +75,8 @@ class FiltersViewModel: ObservableObject {
         return f
     }()
 
-    init() {
+    init(searchModel: Binding<SearchRequestModel?>) {
+        self.searchModel = searchModel
         setup()
     }
 
@@ -96,7 +98,15 @@ class FiltersViewModel: ObservableObject {
 
     func goNext() {
         if currentPage == 2 {
-            // TODO: push results please
+            searchModel.wrappedValue = SearchRequestModel(
+                lat: region.center.latitude,
+                long: region.center.longitude,
+                radius: 1000,
+                maxPrice: nil,
+                includedFacilities: nil,
+                spaceNames: nil,
+                capacity: nil
+            )
         } else {
             currentPage += 1
         }
@@ -246,6 +256,7 @@ extension FiltersViewModel {
                     return
                 }
                 self?.resolvedLocation = "\(a), \(b), \(c)"
+                self?.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: placemark.location?.coordinate.latitude ?? -33.8865505412147, longitude: placemark.location?.coordinate.longitude ?? 151.21161037477057), latitudinalMeters: 1400, longitudinalMeters: 1400)
             }
         }
     }

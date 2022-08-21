@@ -88,6 +88,6 @@ extension FiltersView {
 
 struct FiltersView_Page1_Previews: PreviewProvider {
     static var previews: some View {
-        FiltersView(searchModel: .constant(nil), viewModel: FiltersViewModel()).page1
+        FiltersView(searchModel: .constant(nil)).page1
     }
 }

@@ -32,6 +32,6 @@ extension FiltersView {
 
 struct FiltersView_Page2_Previews: PreviewProvider {
     static var previews: some View {
-        FiltersView(searchModel: .constant(nil), viewModel: FiltersViewModel()).page2
+        FiltersView(searchModel: .constant(nil)).page2
     }
 }

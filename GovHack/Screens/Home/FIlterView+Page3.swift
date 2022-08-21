@@ -48,7 +48,7 @@ extension FiltersView {
                     .font(.urbanistBodyMedium)
                     .foregroundColor(.urbanGrey500)
             }
-                .frame(width: .infinity, height: 85, alignment: .leading)
+                .frame(height: 85, alignment: .leading)
                 .background(Color.urbanGrey50)
                 .cornerRadius(16)
         }
@@ -57,6 +57,6 @@ extension FiltersView {
 
 struct FiltersView_Page3_Previews: PreviewProvider {
     static var previews: some View {
-        FiltersView(searchModel: .constant(nil), viewModel: FiltersViewModel()).page3
+        FiltersView(searchModel: .constant(nil)).page3
     }
 }
