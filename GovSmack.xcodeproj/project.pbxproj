@@ -10,6 +10,8 @@
 		04062B2928B10F5800F8EB8F /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 04062B2828B10F5800F8EB8F /* Introspect */; };
 		04062B2B28B1B20500F8EB8F /* FiltersView+Page1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04062B2A28B1B20500F8EB8F /* FiltersView+Page1.swift */; };
 		04062B2D28B1B29700F8EB8F /* FiltersView+Page2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04062B2C28B1B29700F8EB8F /* FiltersView+Page2.swift */; };
+		04062B2F28B1B9D100F8EB8F /* FIlterView+Page3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04062B2E28B1B9D100F8EB8F /* FIlterView+Page3.swift */; };
+		04062B3128B1BDC200F8EB8F /* RangedSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04062B3028B1BDC200F8EB8F /* RangedSlider.swift */; };
 		042C4AEC28B0A65A00DF8337 /* FiltersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C4AEB28B0A65A00DF8337 /* FiltersViewModel.swift */; };
 		042C4AEF28B0AD4B00DF8337 /* MapKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C4AEE28B0AD4B00DF8337 /* MapKitExtensions.swift */; };
 		042C4AF228B0C1B600DF8337 /* EnquireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C4AF128B0C1B600DF8337 /* EnquireView.swift */; };
@@ -88,6 +90,8 @@
 /* Begin PBXFileReference section */
 		04062B2A28B1B20500F8EB8F /* FiltersView+Page1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FiltersView+Page1.swift"; sourceTree = "<group>"; };
 		04062B2C28B1B29700F8EB8F /* FiltersView+Page2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FiltersView+Page2.swift"; sourceTree = "<group>"; };
+		04062B2E28B1B9D100F8EB8F /* FIlterView+Page3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FIlterView+Page3.swift"; sourceTree = "<group>"; };
+		04062B3028B1BDC200F8EB8F /* RangedSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangedSlider.swift; sourceTree = "<group>"; };
 		042C4AEB28B0A65A00DF8337 /* FiltersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewModel.swift; sourceTree = "<group>"; };
 		042C4AEE28B0AD4B00DF8337 /* MapKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitExtensions.swift; sourceTree = "<group>"; };
 		042C4AF128B0C1B600DF8337 /* EnquireView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnquireView.swift; sourceTree = "<group>"; };
@@ -321,6 +325,7 @@
 				7000535228B0AA6A00DC7CDA /* ListingView.swift */,
 				7000535728B0CD2400DC7CDA /* FeaturedListingsCarouselView.swift */,
 				04B564C128B0D149000AF7D5 /* UIKit.swift */,
+				04062B3028B1BDC200F8EB8F /* RangedSlider.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 				7000534C28B09B6700DC7CDA /* FiltersView.swift */,
 				04062B2A28B1B20500F8EB8F /* FiltersView+Page1.swift */,
 				04062B2C28B1B29700F8EB8F /* FiltersView+Page2.swift */,
+				04062B2E28B1B9D100F8EB8F /* FIlterView+Page3.swift */,
 				7000534E28B0A60C00DC7CDA /* ResultsView.swift */,
 				042C4AEB28B0A65A00DF8337 /* FiltersViewModel.swift */,
 				7000535928B0CE3000DC7CDA /* ListingDetailView.swift */,
@@ -510,6 +516,7 @@
 				0443714128B076890060C4FC /* NormalMapView.swift in Sources */,
 				7000534D28B09B6700DC7CDA /* FiltersView.swift in Sources */,
 				7000535A28B0CE3000DC7CDA /* ListingDetailView.swift in Sources */,
+				04062B2F28B1B9D100F8EB8F /* FIlterView+Page3.swift in Sources */,
 				7000534528B078FC00DC7CDA /* MessagesView.swift in Sources */,
 				7000534B28B09B5E00DC7CDA /* SearchResultsView.swift in Sources */,
 				0443711228AFC6120060C4FC /* ViewController.swift in Sources */,
@@ -519,6 +526,7 @@
 				042C4AF228B0C1B600DF8337 /* EnquireView.swift in Sources */,
 				7000534328B0784400DC7CDA /* BookingsView.swift in Sources */,
 				7000535628B0AD6800DC7CDA /* PropertyExtensions.swift in Sources */,
+				04062B3128B1BDC200F8EB8F /* RangedSlider.swift in Sources */,
 				7000535428B0AB9B00DC7CDA /* ListingView.swift in Sources */,
 				0443715028B098910060C4FC /* SearchRequestModel.swift in Sources */,
 				0443714C28B097590060C4FC /* Requests.swift in Sources */,

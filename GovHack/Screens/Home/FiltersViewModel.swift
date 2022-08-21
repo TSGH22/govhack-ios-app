@@ -19,7 +19,6 @@ class FiltersViewModel: ObservableObject {
     var cancellables: Set<AnyCancellable> = []
     var forceStopGeocoding = false
 
-    @Published var maxPrice: Float = 100
     @Published var facLifts: Bool = false
     @Published var facShowers: Bool = false
     @Published var facMonitors: Bool = false
@@ -31,7 +30,8 @@ class FiltersViewModel: ObservableObject {
     @Published var facAccessibleAccess: Bool = false
     @Published var facParking: Bool = false
     @Published var facAircon: Bool = false
-    @Published var facContactlessAccess: Bool = false
+    @Published var facContactlessAccess: Bool = true
+    @Published var facOfficeManagerAccess: Bool = true
     @Published var facWifi: Bool = false
     @Published var showNearbyAreas: Bool = false
     @Published var spaceDesk: Bool = false
@@ -46,8 +46,22 @@ class FiltersViewModel: ObservableObject {
     @Published var dateToString: String = ""
 
     @Published var numberOfPeopleField: String = ""
+    @Published var customMessageField: String = ""
 
     @Published var currentPage = 0
+
+    @Published var privacyAny: Bool = true
+    @Published var privacyShared: Bool = false
+    @Published var privacyPrivate: Bool = false
+
+    @Published var ratingAll: Bool = true
+    @Published var rating1: Bool = false
+    @Published var rating2: Bool = false
+    @Published var rating3: Bool = false
+    @Published var rating4: Bool = false
+    @Published var rating5: Bool = false
+
+    @Published var priceRangeSlider: ClosedRange<Float> = 20...100
 
     private let geocoder = CLGeocoder()
 
@@ -116,6 +130,42 @@ extension FiltersViewModel {
         }
         .store(in: &cancellables)
 
+        $ratingAll.sink { [weak self] isOn in
+            guard isOn else { return }
+            self?.rating1 = false
+            self?.rating2 = false
+            self?.rating3 = false
+            self?.rating4 = false
+            self?.rating5 = false
+        }
+        .store(in: &cancellables)
+        $rating1.sink { [weak self] isOn in
+            guard isOn else { return }
+            self?.ratingAll = false
+        }
+        .store(in: &cancellables)
+        $rating2.sink { [weak self] isOn in
+            guard isOn else { return }
+            self?.ratingAll = false
+        }
+        .store(in: &cancellables)
+        $rating3.sink { [weak self] isOn in
+            guard isOn else { return }
+            self?.ratingAll = false
+        }
+        .store(in: &cancellables)
+        $rating4.sink { [weak self] isOn in
+            guard isOn else { return }
+            self?.ratingAll = false
+        }
+        .store(in: &cancellables)
+        $rating5.sink { [weak self] isOn in
+            guard isOn else { return }
+            self?.ratingAll = false
+        }
+        .store(in: &cancellables)
+
+
         $dateTo.sink { [weak self] date in
             guard let date = date else { return }
             self?.dateToString = self?.dateFormatter.string(from: date) ?? ""
@@ -124,6 +174,25 @@ extension FiltersViewModel {
         $dateFrom.sink { [weak self] date in
             guard let date = date else { return }
             self?.dateFromString = self?.dateFormatter.string(from: date) ?? ""
+        }
+        .store(in: &cancellables)
+
+        $privacyAny.sink { [weak self] isOn in
+            guard isOn else { return }
+            self?.privacyShared = false
+            self?.privacyPrivate = false
+        }
+        .store(in: &cancellables)
+        $privacyShared.sink { [weak self] isOn in
+            guard isOn else { return }
+            self?.privacyAny = false
+            self?.privacyPrivate = false
+        }
+        .store(in: &cancellables)
+        $privacyPrivate.sink { [weak self] isOn in
+            guard isOn else { return }
+            self?.privacyShared = false
+            self?.privacyAny = false
         }
         .store(in: &cancellables)
     }

@@ -150,12 +150,23 @@ struct TallFilledButton: View {
 
 struct ToggleButton: View {
 
+    var image: UIImage? = nil
     let text: String
     @Binding var isSelected: Bool
 
     var body: some View {
-        Button(text, action: {
+        Button(action: {
             isSelected.toggle()
+        }, label: {
+            HStack {
+                if let i = image {
+                    Image(uiImage: i)
+                        .resizable()
+                        .frame(width: 16, height: 16)
+                        .tint(isSelected ? .white : .urbanPrimary300)
+                }
+                Text(text)
+            }
         })
         .frame(height: 38)
         .padding(.horizontal, 12)
