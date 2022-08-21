@@ -29,4 +29,8 @@ extension PropertyModel {
             return spaceTypes.contains(space.type) ? partialResult + space.capacity : partialResult
         }
     }
+    
+    var fullAddress: String {
+        "\(location.streetAddress), \(location.suburb)"
+    }
 }

@@ -35,20 +35,32 @@ struct ListingDetailView: View {
     }
     
     private var galleryCarousel: some View {
-        ScrollView(.horizontal) {
-            HStack {
-                ForEach(property.images, id: \.self) {
-                    AsyncImage(url: $0, content: { image in
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(maxHeight: 460)
-                    }, placeholder: {
-                        ProgressView()
-                            .frame(maxHeight: 460)
-                    })
+        ZStack(alignment: .bottom) {
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(property.images, id: \.self) {
+                        AsyncImage(url: $0, content: { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(maxHeight: 460)
+                        }, placeholder: {
+                            ProgressView()
+                                .frame(maxHeight: 460)
+                        })
+                    }
                 }
             }
+            HStack {
+                RoundedRectangle(cornerRadius: 5)
+                    .fill(Color.urbanPrimary500)
+                    .frame(width: 32, height: 10)
+                ForEach(property.images, id: \.self) { _ in
+                    Circle()
+                        .fill(Color.urbanGrey200)
+                        .frame(width: 10, height: 10)
+                }
+            }.padding(.bottom, 10)
         }
     }
     
@@ -85,6 +97,7 @@ struct ListingDetailView: View {
         VStack {
             Image(icon)
                 .resizable()
+                .aspectRatio(contentMode: .fit)
                 .frame(width: 24, height: 24)
             Text(title)
                 .font(.urbanistBodyBoldLarge)
@@ -114,7 +127,7 @@ struct ListingDetailView: View {
     private var heading: some View {
         Group {
             galleryCarousel
-            Text("Space Name")
+            Text(property.spaces[0].type.rawValue)
                 .font(.urbanistHeading3)
                 .padding(.horizontal, 24)
                 .padding(.top, 24)
@@ -122,21 +135,21 @@ struct ListingDetailView: View {
             
             HStack {
                 Lozenge(
-                    text: "Up to 12 people",
+                    text: "Up to \(property.occupancy(for: PropertyModel.Space.Name.allCases)) people",
                     font: .urbanistBodySemiboldMedium,
                     backgroundColor: .urbanPurple,
                     textColor: .urbanGrey900,
                     image: Image("expandIcon")
                 )
                 Lozenge(
-                    text: "4.2",
+                    text: property.overallRating.formatted(),
                     font: .urbanistBodySemiboldMedium,
                     backgroundColor: .urbanPurple,
                     textColor: .urbanGrey900,
                     image: Image("starIcon")
                 )
                 Lozenge(
-                    text: "4.8",
+                    text: property.greenRating.formatted(),
                     font: .urbanistBodySemiboldMedium,
                     backgroundColor: .urbanPurple,
                     textColor: .urbanGrey900,
@@ -161,7 +174,7 @@ struct ListingDetailView: View {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Space Owner")
                                 .font(.urbanistBodyMedium)
-                            Text("Natasya Wilodra")
+                            Text(property.owner.contactName)
                                 .font(.urbanistHeading6.bold())
                             HStack(spacing: 4) {
                                 Image("policeCheckIcon")
@@ -181,14 +194,7 @@ struct ListingDetailView: View {
                         Text("Overview")
                             .font(.urbanistHeading5.bold())
                             .padding(.top, 24)
-                        Text("""
-Industrial style office and creative space in Surry Hills featuring hot desks and meetings rooms for rent.
-
-All hot desks are equippeped with the essentials to plug and play your computer.
-
-We are family orienated office and encourage community space renters to join in our social perks plus  Read more...
-"""
-                        )
+                        Text(property.description)
                         .font(.urbanistBodyLarge)
                         .padding(.top, 12)
                     }.padding(.horizontal, 24)
@@ -213,13 +219,13 @@ We are family orienated office and encourage community space renters to join in 
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 20, height: 20)
-                            Text("Level 1, 115 Cooper Street, Surry Hills, 2010 NSW")
+                            Text(property.fullAddress)
                                 .font(.urbanistBodyMedium)
                                 .foregroundColor(.urbanGrey700)
                         }.padding(.vertical, 20)
                         NormalMapView(
                             places: [],
-                            selectedPlace: .constant(nil),
+                            selectedPlace: .constant(.init(propertyId: property.id, coordinate: .init(latitude: property.location.latitude, longitude: property.location.longitude))),
                             displayedRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: -33.8865505412147, longitude: 151.21161037477057), latitudinalMeters: 1400, longitudinalMeters: 1400))
                         )
                         .frame(height: 150)
@@ -231,8 +237,8 @@ We are family orienated office and encourage community space renters to join in 
                             .font(.urbanistHeading5.bold())
                             .padding(.vertical, 24)
                         HStack(spacing: 12) {
-                            mediaCell(title: "Floor Plan", icon: "floorPlanIcon")
-                            mediaCell(title: "Virtual Tour", icon: "virtualTour")
+                            mediaCell(title: "Floor Plan", icon: "floorplanIcon")
+                            mediaCell(title: "Virtual Tour", icon: "videoIcon")
                         }
                     }.padding(.horizontal, 24)
                     
@@ -273,7 +279,7 @@ We are family orienated office and encourage community space renters to join in 
                         VStack(spacing: 24) {
                             HStack {
                                 Image("starIcon")
-                                Text("4.2")
+                                Text(property.overallRating.formatted())
                                     .font(.urbanistBodyBoldLarge)
                                 Text("202 Reviews")
                                     .foregroundColor(.urbanGrey900)
@@ -284,7 +290,7 @@ We are family orienated office and encourage community space renters to join in 
                             }
                             HStack {
                                 Image("treeIcon")
-                                Text("4.8")
+                                Text(property.greenRating.formatted())
                                     .font(.urbanistBodyBoldLarge)
                                 Text("Green Score")
                                     .foregroundColor(.urbanGrey900)
@@ -296,7 +302,10 @@ We are family orienated office and encourage community space renters to join in 
                         }
                         .padding(20)
                         .background(RoundedRectangle(cornerRadius: 10).fill(Color.urbanPurple))
-                    }.padding(.horizontal, 24)
+                    }
+                    .padding(.horizontal, 24)
+                    
+                    Spacer().padding(.bottom, 80)
                 }
             }
             .edgesIgnoringSafeArea(.top)
@@ -305,14 +314,14 @@ We are family orienated office and encourage community space renters to join in 
             VStack(spacing: 0) {
                 Spacer()
                 HStack(spacing: 8) {
-                    Text("$85")
+                    Text(property.lowestPrice.formatted())
                         .font(.urbanistHeading3.bold())
                         .foregroundColor(.urbanPrimary300) +
                     Text("/ hour")
                         .font(.urbanistBodyMedium)
                         .foregroundColor(.urbanGrey700)
                     
-                    Text("$255")
+                    Text((property.lowestPrice * 2.3).formatted())
                         .font(.urbanistHeading3.bold())
                         .foregroundColor(.urbanPrimary300) +
                     Text("3 hours")
